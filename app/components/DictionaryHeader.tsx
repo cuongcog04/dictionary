@@ -23,7 +23,7 @@ export default function DictionaryHeader() {
     }, []);
 
     return (
-        <header className="py-12 text-center select-none overflow-hidden">
+        <header className="py-6 sm:py-12 text-center select-none overflow-hidden">
             <motion.h1
                 layout
                 transition={{ duration: 0.5, ease: "easeInOut" }}

@@ -1,6 +1,7 @@
 import SystemStats from './SystemStats';
 import CodeExamples from './CodeExamples';
 import SourcesSection from './SourcesSection';
+import { EXAMPLE_JSON_SUCCESS, EXAMPLE_JSON_NOT_FOUND } from '../constants';
 
 export default function DictionaryDocumentation() {
     return (
@@ -17,7 +18,7 @@ export default function DictionaryDocumentation() {
                     <div className="flex items-center gap-3 mb-6">
                         <span className="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded">GET</span>
                         <div className="overflow-x-auto">
-                            <code className="text-lg font-mono font-bold text-gray-900 dark:text-white">https://minhqnd.com/api/dictionary/lookup</code>
+                            <code className="text-lg font-mono font-bold text-gray-900 dark:text-white">https://dict.minhqnd.com/api/dictionary/lookup</code>
                         </div>
                     </div>
 
@@ -56,55 +57,7 @@ export default function DictionaryDocumentation() {
                                     Tìm thấy từ (200 Found)
                                 </h4>
                                 <pre className="bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-gray-800 p-4 rounded-xl overflow-x-auto text-[12px] leading-relaxed font-mono text-emerald-600 dark:text-emerald-400">
-                                    {`{
-  "exists": true,
-  "word": "học sinh",
-  "results": [{
-    "lang_code": "vi",
-    "lang_name": "Tiếng Việt",
-    "audio": "/api/dictionary/tts?word=h%E1%BB%8Dc%20sinh&lang=vi",
-    "meanings": [
-      {
-        "definition": "người học ở bậc phổ thông",
-        "definition_lang": "vi",
-        "example": "học sinh tiểu học ~ thời học sinh",
-        "pos": "Danh từ",
-        "sub_pos": "Danh từ chỉ vật, hiện tượng",
-        "source": "Tiếng Việt Thông Dụng",
-        "links": []
-      },
-      {
-        "definition": "Trẻ em học tập ở nhà trường.",
-        "definition_lang": "vi",
-        "example": "Học sinh trung học.",
-        "pos": "Danh từ",
-        "source": "Wiktionary",
-        "links": []
-      },
-      {
-        "definition": "a student",
-        "definition_lang": "en",
-        "pos": "Danh từ",
-        "source": "Wiktionary EN",
-        "links": []
-      }
-    ],
-    "pronunciations": [
-      { "ipa": "[hawk͡p̚˧˨ʔ sïŋ˧˧]", "region": "Hà-Nội" },
-      { "ipa": "[hawk͡p̚˨˩ʔ sɨn˧˧]", "region": "Huế" },
-      { "ipa": "[hawk͡p̚˨˩˨ sɨn˧˧]", "region": "Saigon" }
-    ],
-    "translations": [
-      { "lang_code": "en", "translation": "student", "lang_name": "Tiếng Anh" },
-      { "lang_code": "en", "translation": "pupil", "lang_name": "Tiếng Anh" },
-      { "lang_code": "zh", "translation": "學生", "lang_name": "Tiếng Trung Quốc" }
-    ],
-    "relations": [
-      { "related_word": "học viên", "relation_type": "Đồng nghĩa" },
-      { "related_word": "sinh viên", "relation_type": "Đồng nghĩa" }
-    ]
-  }]
-}`}
+                                    {EXAMPLE_JSON_SUCCESS}
                                 </pre>
                             </div>
                             <div>
@@ -112,9 +65,7 @@ export default function DictionaryDocumentation() {
                                     Không tìm thấy (404 Not Found)
                                 </h4>
                                 <pre className="bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-gray-800 p-4 rounded-xl overflow-x-auto text-[12px] leading-relaxed font-mono text-pink-600 dark:text-pink-400">
-                                    {`{
-  "exists": false
-}`}
+                                    {EXAMPLE_JSON_NOT_FOUND}
                                 </pre>
                             </div>
                         </div>
@@ -288,7 +239,7 @@ export default function DictionaryDocumentation() {
                     <div className="flex items-center gap-3 mb-6">
                         <span className="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded">GET</span>
                         <div className="overflow-x-auto">
-                            <code className="text-lg font-mono font-bold text-gray-900 dark:text-white">https://minhqnd.com/api/dictionary/suggest</code>
+                            <code className="text-lg font-mono font-bold text-gray-900 dark:text-white">https://dict.minhqnd.com/api/dictionary/suggest</code>
                         </div>
                     </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 font-medium">
@@ -319,7 +270,7 @@ export default function DictionaryDocumentation() {
                     <div className="flex items-center gap-3 mb-6">
                         <span className="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded">GET</span>
                         <div className="overflow-x-auto">
-                            <code className="text-lg font-mono font-bold text-gray-900 dark:text-white">https://minhqnd.com/api/dictionary/tts</code>
+                            <code className="text-lg font-mono font-bold text-gray-900 dark:text-white">https://dict.minhqnd.com/api/dictionary/tts</code>
                         </div>
                     </div>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">

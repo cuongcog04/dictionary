@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import SystemStats from './SystemStats';
 import CodeExamples from './CodeExamples';
 import SourcesSection from './SourcesSection';
@@ -67,22 +68,18 @@ export default function DictionaryDocumentation() {
 
                         <CodeExamples />
 
-                        <div className="">
+                        <div className="space-y-6">
                             <div>
                                 <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3 ml-1">
                                     Tìm thấy từ (200 Found)
                                 </h4>
-                                <pre className="bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-gray-800 p-4 rounded-xl overflow-x-auto text-[12px] leading-relaxed font-mono text-emerald-600 dark:text-emerald-400">
-                                    {EXAMPLE_JSON_SUCCESS}
-                                </pre>
+                                <CopyableJSON content={EXAMPLE_JSON_SUCCESS} colorClass="text-emerald-600 dark:text-emerald-400" />
                             </div>
                             <div>
                                 <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 my-3 ml-1">
                                     Không tìm thấy (404 Not Found)
                                 </h4>
-                                <pre className="bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-gray-800 p-4 rounded-xl overflow-x-auto text-[12px] leading-relaxed font-mono text-pink-600 dark:text-pink-400">
-                                    {EXAMPLE_JSON_NOT_FOUND}
-                                </pre>
+                                <CopyableJSON content={EXAMPLE_JSON_NOT_FOUND} colorClass="text-pink-600 dark:text-pink-400" />
                             </div>
                         </div>
 
@@ -326,6 +323,39 @@ export default function DictionaryDocumentation() {
                 <SourcesSection />
             </div>
         </section>
+    );
+}
+
+function CopyableJSON({ content, colorClass }: { content: string; colorClass: string }) {
+    const [copied, setCopied] = useState(false);
+
+    const handleCopy = () => {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(content);
+        } else {
+            const textarea = document.createElement('textarea');
+            textarea.value = content;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
+    return (
+        <div className="relative group/code">
+            <button
+                onClick={handleCopy}
+                className="absolute top-3 right-3 p-2 bg-white/10 hover:bg-white/20 dark:bg-black/20 dark:hover:bg-black/40 rounded-lg text-xs font-medium text-gray-400 hover:text-white transition-all sm:opacity-0 group-hover/code:opacity-100 backdrop-blur-sm border border-white/5 z-10"
+            >
+                {copied ? '✓ Đã copy' : 'Copy'}
+            </button>
+            <pre className={`bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-gray-800 p-4 rounded-xl overflow-x-auto text-[12px] leading-relaxed font-mono ${colorClass}`}>
+                <code>{content}</code>
+            </pre>
+        </div>
     );
 }
 

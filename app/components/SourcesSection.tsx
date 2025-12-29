@@ -8,15 +8,46 @@ export default function SourcesSection() {
                     <svg className="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
-                    Nguồn dữ liệu
+                    Nguồn dữ liệu & Giấy phép
                 </h3>
                 <div className="space-y-3 text-sm">
-                    <SourceItem emoji="📚" label="Từ Điển Tiếng Việt Thông Dụng" link="https://github.com/vntk/dictionary/tree/master/data" linkText="github.com/vntk/dictionary" />
-                    <SourceItem emoji="📖" label="Vietnamese Dictionary - Hồ Ngọc Đức" description="Từ 'The Free Vietnamese Dictionary Project' của tác giả Hồ Ngọc Đức" />
-                    <SourceItem emoji="📕" label="Vietnamese Explanatory Dictionary" description="Từ điển giải thích tiếng Việt" />
-                    <SourceItem emoji="📗" label="Vietnamese Dictionary" link="https://tudientv.com" linkText="tudientv.com" />
-                    <SourceItem emoji="🀄" label="Chữ Nôm Dictionary" link="https://chunom.org" linkText="chunom.org" />
-                    <SourceItem emoji="🌐" label="Wiktionary & Wikipedia Tiếng Việt" description="Dữ liệu từ Wiktionary và Wikipedia tiếng Việt" />
+                    <SourceItem
+                        emoji="📚"
+                        label="Từ Điển Tiếng Việt Thông Dụng"
+                        link="https://github.com/vntk/dictionary"
+                        linkText="github.com/vntk/dictionary"
+                        license="MIT License"
+                        licenseUrl="https://opensource.org/licenses/MIT"
+                    />
+                    <SourceItem
+                        emoji="📖"
+                        label="Vietnamese Dictionary - Hồ Ngọc Đức"
+                        description="Từ 'The Free Vietnamese Dictionary Project'"
+                        license="GNU GPL"
+                        licenseUrl="https://www.gnu.org/licenses/gpl-3.0.html"
+                    />
+                    <SourceItem
+                        emoji="📕"
+                        label="Vietnamese Explanatory Dictionary"
+                        description="Từ điển giải thích tiếng Việt"
+                        license="GNU GPL"
+                        licenseUrl="https://www.gnu.org/licenses/gpl-3.0.html"
+                    />
+                    <SourceItem
+                        emoji="📗"
+                        label="Vietnamese Dictionary"
+                        link="https://tudientv.com"
+                        linkText="tudientv.com"
+                        license="GNU GPL"
+                        licenseUrl="https://www.gnu.org/licenses/gpl-3.0.html"
+                    />
+                    <SourceItem
+                        emoji="🌐"
+                        label="Wiktionary & Wikipedia Tiếng Việt"
+                        description="Dữ liệu từ Wiktionary và Wikipedia tiếng Việt"
+                        license="CC BY-SA 4.0"
+                        licenseUrl="https://creativecommons.org/licenses/by-sa/4.0/deed.vi"
+                    />
                     <div className="flex gap-3 items-start pt-2 border-t border-teal-100 dark:border-teal-900/30">
                         <span className="text-amber-500 mt-0.5">🤖</span>
                         <div>
@@ -34,43 +65,91 @@ export default function SourcesSection() {
                     <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
-                    Giấy phép & Sử dụng
+                    Điều khoản sử dụng
                 </h3>
                 <div className="space-y-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     <p>
-                        Dữ liệu được cung cấp hoàn toàn miễn phí dưới giấy phép
-                        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" className="mx-1 text-blue-500 hover:underline font-medium">CC BY 4.0</a>.
-                        Bạn có thể:
+                        API từ điển được cung cấp bởi <strong className="text-gray-900 dark:text-white">@minhqnd</strong> theo giấy phép
+                        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.vi" target="_blank" rel="noopener" className="mx-1 text-blue-500 hover:underline font-medium">CC BY-SA 4.0</a>.
                     </p>
-                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 pb-2">
-                        <li className="flex items-start gap-2">
-                            <span className="text-green-500 mt-1 flex-shrink-0">✓</span>
-                            <span>Sao chép và phân phối lại</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                            <span className="text-green-500 mt-1 flex-shrink-0">✓</span>
-                            <span>Chỉnh sửa và tạo sản phẩm phái sinh</span>
-                        </li>
-                    </ul>
-                    <div className="p-3 bg-blue-50 dark:bg-blue-900/10 rounded-lg border border-blue-100 dark:border-blue-900/20 text-blue-600 dark:text-blue-400 font-medium">
-                        💡 Ghi nguồn @minhqnd và liên kết đến trang này khi sử dụng.
+
+                    <div className="space-y-2">
+                        <p className="font-semibold text-gray-900 dark:text-white text-xs uppercase tracking-wider">Bạn được tự do:</p>
+                        <ul className="space-y-1.5 pl-1">
+                            <li className="flex items-start gap-2">
+                                <span className="text-green-500 mt-0.5">✓</span>
+                                <span><strong className="text-gray-900 dark:text-white">Chia sẻ</strong> — sao chép và phân phối lại dữ liệu từ điển, kể cả thương mại.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span className="text-green-500 mt-0.5">✓</span>
+                                <span><strong className="text-gray-900 dark:text-white">Chuyển thể</strong> — chỉnh sửa, bổ sung và xây dựng dựa trên dữ liệu từ điển.</span>
+                            </li>
+                        </ul>
+                        <p className="text-xs italic text-gray-500 dark:text-gray-500 pl-6">
+                            Người cấp phép không thể thu hồi những quyền tự do này chừng nào bạn còn tuân thủ các điều khoản.
+                        </p>
+                    </div>
+
+                    <div className="space-y-2">
+                        <p className="font-semibold text-gray-900 dark:text-white text-xs uppercase tracking-wider">Với điều kiện:</p>
+                        <ul className="space-y-1.5 pl-1">
+                            <li className="flex items-start gap-2">
+                                <span className="text-amber-500 mt-0.5">•</span>
+                                <span><strong className="text-gray-900 dark:text-white">Ghi công</strong> — ghi nguồn <code className="text-xs bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">@minhqnd</code>, liên kết đến <a href="https://dict.minhqnd.com" className="text-blue-500 hover:underline">dict.minhqnd.com</a> và ghi chú nếu có thay đổi.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span className="text-amber-500 mt-0.5">•</span>
+                                <span><strong className="text-gray-900 dark:text-white">Chia sẻ tương tự</strong> — phân phối bản chỉnh sửa theo cùng giấy phép CC BY-SA 4.0.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span className="text-amber-500 mt-0.5">•</span>
+                                <span><strong className="text-gray-900 dark:text-white">Không hạn chế bổ sung</strong> — không được áp dụng điều khoản pháp lý hoặc biện pháp công nghệ hạn chế người khác.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="p-3 bg-blue-50 dark:bg-blue-900/10 rounded-lg border border-blue-100 dark:border-blue-900/20">
+                        <p className="text-blue-700 dark:text-blue-300 text-xs">
+                            <strong>📌 Lưu ý:</strong> Khi sử dụng API, vui lòng dẫn link đến <a href="https://dict.minhqnd.com" className="underline font-medium">dict.minhqnd.com</a> để người dùng có thể xem các nguồn gốc và giấy phép chi tiết của từng nguồn dữ liệu.
+                        </p>
                     </div>
                 </div>
             </div>
+
         </>
     );
 }
 
-function SourceItem({ emoji, label, link, linkText, description }: { emoji: string, label: string, link?: string, linkText?: string, description?: string }) {
+function SourceItem({ emoji, label, link, linkText, description, license, licenseUrl }: {
+    emoji: string,
+    label: string,
+    link?: string,
+    linkText?: string,
+    description?: string,
+    license?: string,
+    licenseUrl?: string
+}) {
     return (
         <div className="flex gap-3 items-start pt-2 border-t border-teal-100 dark:border-teal-900/30 first:border-0 first:pt-0">
             <span className="text-teal-500 mt-0.5">{emoji}</span>
-            <div>
-                <span className="font-medium text-gray-900 dark:text-white">{label}</span>
+            <div className="flex-1">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                    <span className="font-medium text-gray-900 dark:text-white">{label}</span>
+                    {license && (
+                        <a
+                            href={licenseUrl}
+                            target="_blank"
+                            rel="noopener"
+                            className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                        >
+                            {license}
+                        </a>
+                    )}
+                </div>
                 {description && <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">{description}</p>}
                 {link && (
                     <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">
-                        Nguồn từ <a href={link} target="_blank" rel="noopener" className="text-teal-600 dark:text-teal-400 hover:underline">{linkText}</a>
+                        Nguồn từ: <a href={link} target="_blank" rel="noopener" className="text-teal-600 dark:text-teal-400 hover:underline">{linkText}</a>
                     </p>
                 )}
             </div>

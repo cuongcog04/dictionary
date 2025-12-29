@@ -5,10 +5,10 @@ export default function DictionaryFooter() {
     return (
         <footer className="mt-16 py-8 border-t border-gray-100 dark:border-[#1a1a1a] text-center text-gray-400 dark:text-gray-600 text-sm">
             <div className="flex justify-center items-center gap-4 mb-3">
-                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" className="inline-block opacity-80 hover:opacity-100 transition-opacity">
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" className="inline-block opacity-80 hover:opacity-100 transition-opacity">
                     <Image
-                        src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png"
-                        alt="CC BY 4.0"
+                        src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png"
+                        alt="CC BY-SA 4.0"
                         width={88}
                         height={31}
                         unoptimized

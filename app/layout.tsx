@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
     title: 'API Từ Điển Đa Ngôn Ngữ Free| @minhqnd',
-    description: 'API tra cứu từ điển đa ngôn ngữ miễn phí với hơn 370,000 từ và 500,000 định nghĩa. Hỗ trợ RESTful API, JSON response, tìm kiếm nhanh. Giấy phép CC BY 4.0.',
+    description: 'API tra cứu từ điển đa ngôn ngữ miễn phí với hơn 370,000 từ và 500,000 định nghĩa. Hỗ trợ RESTful API, JSON response, tìm kiếm nhanh. Giấy phép CC BY-SA 4.0.',
     keywords: [
         'từ điển tiếng việt',
         'api từ điển',

@@ -45,7 +45,7 @@ export default function DictionaryHeader() {
                             animate={{ x: 0, opacity: 1 }}
                             exit={{ x: 0, opacity: 0 }}
                             transition={{
-                                opacity: { duration: 0.3, ease: "easeInOut" },
+                                opacity: { duration: 0.5, ease: "easeInOut" },
                                 x: { duration: 0.5, ease: "easeInOut" }
                             }}
                             className="inline-flex items-center gap-2 whitespace-nowrap"
@@ -59,7 +59,7 @@ export default function DictionaryHeader() {
                 <motion.span
                     layout
                     transition={{
-                        layout: { duration: 0.6, ease: "easeInOut" }
+                        layout: { duration: 0.2, ease: "easeInOut" }
                     }}
                 >
                     Free

@@ -50,34 +50,65 @@ export default function DictionaryDocumentation() {
 
                         <CodeExamples />
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="">
                             <div>
                                 <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3 ml-1">
                                     Tìm thấy từ (200 Found)
                                 </h4>
                                 <pre className="bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-gray-800 p-4 rounded-xl overflow-x-auto text-[12px] leading-relaxed font-mono text-emerald-600 dark:text-emerald-400">
                                     {`{
-    "exists": true,
-    "word": "học sinh",
-    "results": [
-        {
-            "lang_code": "vi",
-            "lang_name": "Tiếng Việt",
-            "meanings": [
-                {
-                    "definition": "người học ở bậc phổ thông",
-                    "example": "học sinh tiểu học ~ thời học sinh",
-                    "pos": "Danh từ",
-                    "source": "Tiếng Việt Thông Dụng"
-                }
-            ]
-        }
+  "exists": true,
+  "word": "học sinh",
+  "results": [{
+    "lang_code": "vi",
+    "lang_name": "Tiếng Việt",
+    "audio": "/api/dictionary/tts?word=h%E1%BB%8Dc%20sinh&lang=vi",
+    "meanings": [
+      {
+        "definition": "người học ở bậc phổ thông",
+        "definition_lang": "vi",
+        "example": "học sinh tiểu học ~ thời học sinh",
+        "pos": "Danh từ",
+        "sub_pos": "Danh từ chỉ vật, hiện tượng",
+        "source": "Tiếng Việt Thông Dụng",
+        "links": []
+      },
+      {
+        "definition": "Trẻ em học tập ở nhà trường.",
+        "definition_lang": "vi",
+        "example": "Học sinh trung học.",
+        "pos": "Danh từ",
+        "source": "Wiktionary",
+        "links": []
+      },
+      {
+        "definition": "a student",
+        "definition_lang": "en",
+        "pos": "Danh từ",
+        "source": "Wiktionary EN",
+        "links": []
+      }
+    ],
+    "pronunciations": [
+      { "ipa": "[hawk͡p̚˧˨ʔ sïŋ˧˧]", "region": "Hà-Nội" },
+      { "ipa": "[hawk͡p̚˨˩ʔ sɨn˧˧]", "region": "Huế" },
+      { "ipa": "[hawk͡p̚˨˩˨ sɨn˧˧]", "region": "Saigon" }
+    ],
+    "translations": [
+      { "lang_code": "en", "translation": "student", "lang_name": "Tiếng Anh" },
+      { "lang_code": "en", "translation": "pupil", "lang_name": "Tiếng Anh" },
+      { "lang_code": "zh", "translation": "學生", "lang_name": "Tiếng Trung Quốc" }
+    ],
+    "relations": [
+      { "related_word": "học viên", "relation_type": "Đồng nghĩa" },
+      { "related_word": "sinh viên", "relation_type": "Đồng nghĩa" }
     ]
+  }]
 }`}
                                 </pre>
                             </div>
                             <div>
-                                <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3 ml-1">
+                                <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 my-3 ml-1">
                                     Không tìm thấy (404 Not Found)
                                 </h4>
                                 <pre className="bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-gray-800 p-4 rounded-xl overflow-x-auto text-[12px] leading-relaxed font-mono text-pink-600 dark:text-pink-400">
@@ -92,7 +123,10 @@ export default function DictionaryDocumentation() {
                             <h4 className="text-sm font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-4">
                                 Cấu trúc dữ liệu JSON
                             </h4>
-                            <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl">
+
+                            {/* Root Object */}
+                            <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl mb-4">
+                                <div className="px-5 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Root Object</div>
                                 <table className="w-full text-[13px] text-left">
                                     <thead className="bg-gray-50 dark:bg-[#111] text-gray-600 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-800">
                                         <tr>
@@ -104,9 +138,87 @@ export default function DictionaryDocumentation() {
                                     <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
                                         <DataRow field="exists" type="boolean" desc="Dữ liệu có tồn tại trong từ điển không." />
                                         <DataRow field="word" type="string" desc="Từ gốc được chuẩn hóa." />
-                                        <DataRow field="results" type="array<LanguageResult>" desc="Danh sách kết quả theo từng ngôn ngữ." />
+                                        <DataRow field="results" type="LanguageResult[]" desc="Danh sách kết quả theo từng ngôn ngữ." />
                                     </tbody>
                                 </table>
+                            </div>
+
+                            {/* LanguageResult Object */}
+                            <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl mb-4">
+                                <div className="px-5 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">LanguageResult</div>
+                                <table className="w-full text-[13px] text-left">
+                                    <thead className="bg-gray-50 dark:bg-[#111] text-gray-600 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-800">
+                                        <tr>
+                                            <th className="px-5 py-3">Trường</th>
+                                            <th className="px-5 py-3">Kiểu</th>
+                                            <th className="px-5 py-3">Mô tả</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+                                        <DataRow field="lang_code" type="string" desc="Mã ngôn ngữ (ISO 639): vi, en, zh..." />
+                                        <DataRow field="lang_name" type="string" desc="Tên ngôn ngữ: Tiếng Việt, English..." />
+                                        <DataRow field="audio" type="string" desc="URL endpoint phát âm TTS." />
+                                        <DataRow field="meanings" type="Meaning[]" desc="Danh sách định nghĩa." />
+                                        <DataRow field="pronunciations" type="Pronunciation[]" desc="Phiên âm IPA theo vùng miền." />
+                                        <DataRow field="translations" type="Translation[]" desc="Bản dịch sang các ngôn ngữ khác." />
+                                        <DataRow field="relations" type="Relation[]" desc="Từ liên quan (đồng nghĩa, trái nghĩa)." />
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            {/* Meaning Object */}
+                            <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl mb-4">
+                                <div className="px-5 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Meaning</div>
+                                <table className="w-full text-[13px] text-left">
+                                    <thead className="bg-gray-50 dark:bg-[#111] text-gray-600 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-800">
+                                        <tr>
+                                            <th className="px-5 py-3">Trường</th>
+                                            <th className="px-5 py-3">Kiểu</th>
+                                            <th className="px-5 py-3">Mô tả</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+                                        <DataRow field="definition" type="string" desc="Nội dung định nghĩa." />
+                                        <DataRow field="definition_lang" type="string" desc="Ngôn ngữ định nghĩa: vi, en..." />
+                                        <DataRow field="example" type="string?" desc="Ví dụ minh hoạ (null nếu không có)." />
+                                        <DataRow field="pos" type="string?" desc="Từ loại: Danh từ, Động từ, Tính từ..." />
+                                        <DataRow field="sub_pos" type="string?" desc="Từ loại phụ chi tiết hơn." />
+                                        <DataRow field="source" type="string" desc="Nguồn dữ liệu: Wiktionary, TVTD..." />
+                                        <DataRow field="links" type="string[]" desc="Các từ liên quan trong định nghĩa." />
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            {/* Sub-objects in a grid */}
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl">
+                                    <div className="px-4 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Pronunciation</div>
+                                    <table className="w-full text-[12px] text-left">
+                                        <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+                                            <DataRow field="ipa" type="string" desc="Phiên âm IPA" />
+                                            <DataRow field="region" type="string" desc="Vùng miền" />
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl">
+                                    <div className="px-4 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Translation</div>
+                                    <table className="w-full text-[12px] text-left">
+                                        <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+                                            <DataRow field="lang_code" type="string" desc="Mã ngôn ngữ" />
+                                            <DataRow field="lang_name" type="string" desc="Tên ngôn ngữ" />
+                                            <DataRow field="translation" type="string" desc="Bản dịch" />
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl">
+                                    <div className="px-4 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Relation</div>
+                                    <table className="w-full text-[12px] text-left">
+                                        <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+                                            <DataRow field="related_word" type="string" desc="Từ liên quan" />
+                                            <DataRow field="relation_type" type="string" desc="Loại quan hệ" />
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 

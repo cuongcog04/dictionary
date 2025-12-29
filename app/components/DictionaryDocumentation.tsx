@@ -46,6 +46,20 @@ export default function DictionaryDocumentation() {
                                             </td>
                                             <td className="px-5 py-4 text-gray-500 dark:text-gray-400">Từ cần tra cứu. Ví dụ: &quot;học sinh&quot;</td>
                                         </tr>
+                                        <tr className="dark:hover:bg-white/5 transition-colors">
+                                            <td className="px-5 py-4 font-mono text-xs text-orange-600 dark:text-orange-400 font-bold">lang</td>
+                                            <td className="px-5 py-4 text-center">
+                                                <span className="text-[10px] px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 font-bold rounded">NO</span>
+                                            </td>
+                                            <td className="px-5 py-4 text-gray-500 dark:text-gray-400">Ngôn ngữ của từ. Ví dụ: &quot;vi&quot;, &quot;en&quot;, &quot;zh&quot;</td>
+                                        </tr>
+                                        <tr className="dark:hover:bg-white/5 transition-colors">
+                                            <td className="px-5 py-4 font-mono text-xs text-orange-600 dark:text-orange-400 font-bold">def_lang</td>
+                                            <td className="px-5 py-4 text-center">
+                                                <span className="text-[10px] px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 font-bold rounded">NO</span>
+                                            </td>
+                                            <td className="px-5 py-4 text-gray-500 dark:text-gray-400">Lọc theo ngôn ngữ định nghĩa. Ví dụ: &quot;en&quot; để chỉ lấy nghĩa tiếng Anh (hiện chỉ có vi/en)</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

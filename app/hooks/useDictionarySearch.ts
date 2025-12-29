@@ -67,7 +67,14 @@ export function useDictionarySearch() {
             return;
         }
 
-        const langParam = lang ?? filterLangRef.current;
+        // Extract wordLang from filterLang if lang not explicitly provided
+        // filterLang is in format 'word_lang-def_lang' (e.g., 'vi-vi', 'en-vi')
+        let langParam = lang;
+        if (!langParam && filterLangRef.current) {
+            const parts = filterLangRef.current.split('-');
+            langParam = parts[0] || undefined; // Get wordLang part
+        }
+
         setLoading(true);
         try {
             let url = `/api/v1/lookup?word=${encodeURIComponent(word.trim())}`;

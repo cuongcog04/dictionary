@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 /**
- * API route: GET /api/dictionary/tts?word=...&lang=...
+ * API route: GET /api/v1/tts?word=...&lang=...
  * Proxies requests to Google Translate TTS
  * Falls back to English then Vietnamese if specified language is not supported
  */

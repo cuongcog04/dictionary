@@ -41,7 +41,7 @@ export function useDictionarySearch() {
         const currentQuery = query;
         const timer = setTimeout(async () => {
             try {
-                const res = await fetch(`/api/dictionary/suggest?q=${encodeURIComponent(currentQuery)}`);
+                const res = await fetch(`/api/v1/suggest?q=${encodeURIComponent(currentQuery)}`);
                 const data = await res.json();
                 if (queryRef.current === currentQuery && data.suggestions?.length > 0) {
                     setSuggestions(data.suggestions);
@@ -70,7 +70,7 @@ export function useDictionarySearch() {
         const langParam = lang ?? filterLangRef.current;
         setLoading(true);
         try {
-            let url = `/api/dictionary/lookup?word=${encodeURIComponent(word.trim())}`;
+            let url = `/api/v1/lookup?word=${encodeURIComponent(word.trim())}`;
             if (langParam) {
                 url += `&lang=${encodeURIComponent(langParam)}`;
             }

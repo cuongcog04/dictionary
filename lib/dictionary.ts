@@ -307,7 +307,7 @@ function getWordData(wordId: number, wordText: string, langCode: string): Langua
     return {
         lang_code: langCode,
         lang_name: LANG_LABELS[langCode] ?? langCode,
-        audio: `/api/dictionary/tts?word=${encodeURIComponent(wordText)}&lang=${langCode}`,
+        audio: `/api/v1/tts?word=${encodeURIComponent(wordText)}&lang=${langCode}`,
         meanings: updatedMeanings,
         pronunciations,
         translations: updatedTranslations,

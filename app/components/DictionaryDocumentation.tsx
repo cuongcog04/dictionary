@@ -19,7 +19,7 @@ export default function DictionaryDocumentation() {
                         <div className="flex items-center gap-3">
                             <span className="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded">GET</span>
                             <div className="overflow-x-auto">
-                                <code className="text-base sm:text-lg font-mono font-bold text-gray-900 dark:text-white whitespace-nowrap">https://dict.minhqnd.com/api/dictionary/lookup</code>
+                                <code className="text-base sm:text-lg font-mono font-bold text-gray-900 dark:text-white whitespace-nowrap">https://dict.minhqnd.com/api/v1/lookup</code>
                             </div>
                         </div>
                     </div>
@@ -242,7 +242,7 @@ export default function DictionaryDocumentation() {
                         <div className="flex items-center gap-3">
                             <span className="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded">GET</span>
                             <div className="overflow-x-auto">
-                                <code className="text-base sm:text-lg font-mono font-bold text-gray-900 dark:text-white whitespace-nowrap">https://dict.minhqnd.com/api/dictionary/suggest</code>
+                                <code className="text-base sm:text-lg font-mono font-bold text-gray-900 dark:text-white whitespace-nowrap">https://dict.minhqnd.com/api/v1/suggest</code>
                             </div>
                         </div>
                     </div>
@@ -275,7 +275,7 @@ export default function DictionaryDocumentation() {
                         <div className="flex items-center gap-3">
                             <span className="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded">GET</span>
                             <div className="overflow-x-auto">
-                                <code className="text-base sm:text-lg font-mono font-bold text-gray-900 dark:text-white whitespace-nowrap">https://dict.minhqnd.com/api/dictionary/tts</code>
+                                <code className="text-base sm:text-lg font-mono font-bold text-gray-900 dark:text-white whitespace-nowrap">https://dict.minhqnd.com/api/v1/tts</code>
                             </div>
                         </div>
                     </div>

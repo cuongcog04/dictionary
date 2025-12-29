@@ -14,8 +14,8 @@ const CACHE_HEADERS = {
 /**
  * Multi-language dictionary lookup API
  * 
- * GET /api/dictionary/lookup?word=hello
- * GET /api/dictionary/lookup?word=hello&lang=vi  (specific language)
+ * GET /api/v1/lookup?word=hello
+ * GET /api/v1/lookup?word=hello&lang=vi  (specific language)
  * 
  * @returns JSON response with results grouped by language
  */

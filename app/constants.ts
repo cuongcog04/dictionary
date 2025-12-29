@@ -5,7 +5,7 @@ export const EXAMPLE_JSON_SUCCESS = `{
   "results": [{
     "lang_code": "vi",
     "lang_name": "Tiếng Việt",
-    "audio": "/api/dictionary/tts?word=h%E1%BB%8Dc%20sinh&lang=vi",
+    "audio": "/api/v1/tts?word=h%E1%BB%8Dc%20sinh&lang=vi",
     "meanings": [
       {
         "definition": "người học ở bậc phổ thông",
@@ -55,7 +55,7 @@ export const EXAMPLE_JSON_NOT_FOUND = `{
 
 // Code examples for API documentation - updated to match actual API structure
 export const JS_CODE = `const word = "học sinh";
-const url = \`https://dict.minhqnd.com/api/dictionary/lookup?word=\${encodeURIComponent(word)}\`;
+const url = \`https://dict.minhqnd.com/api/v1/lookup?word=\${encodeURIComponent(word)}\`;
 
 fetch(url)
   .then(res => res.json())
@@ -79,7 +79,7 @@ export const PYTHON_CODE = `import requests
 from urllib.parse import quote
 
 word = "học sinh"
-url = f"https://dict.minhqnd.com/api/dictionary/lookup?word={quote(word)}"
+url = f"https://dict.minhqnd.com/api/v1/lookup?word={quote(word)}"
 
 data = requests.get(url).json()
 
@@ -95,7 +95,7 @@ if data["exists"]:
             p = lang["pronunciations"][0]
             print(f"  IPA: {p['ipa']} ({p['region']})")`;
 
-export const CURL_CODE = `curl "https://dict.minhqnd.com/api/dictionary/lookup?word=h%E1%BB%8Dc%20sinh"`;
+export const CURL_CODE = `curl "https://dict.minhqnd.com/api/v1/lookup?word=h%E1%BB%8Dc%20sinh"`;
 
 export const GO_CODE = `package main
 
@@ -125,7 +125,7 @@ type Response struct {
 
 func main() {
     word := "học sinh"
-    apiURL := "https://dict.minhqnd.com/api/dictionary/lookup?word=" + url.QueryEscape(word)
+    apiURL := "https://dict.minhqnd.com/api/v1/lookup?word=" + url.QueryEscape(word)
     
     resp, _ := http.Get(apiURL)
     defer resp.Body.Close()
@@ -151,7 +151,7 @@ import org.json.*;
 public class Dictionary {
     public static void main(String[] args) throws Exception {
         String word = "học sinh";
-        String url = "https://dict.minhqnd.com/api/dictionary/lookup?word=" 
+        String url = "https://dict.minhqnd.com/api/v1/lookup?word=" 
             + URLEncoder.encode(word, "UTF-8");
         
         HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
@@ -190,7 +190,7 @@ int main() {
         char *word = curl_easy_escape(curl, "học sinh", 0);
         char url[256];
         snprintf(url, sizeof(url), 
-            "https://dict.minhqnd.com/api/dictionary/lookup?word=%s", word);
+            "https://dict.minhqnd.com/api/v1/lookup?word=%s", word);
         
         curl_easy_setopt(curl, CURLOPT_URL, url);
         curl_easy_perform(curl);
@@ -202,10 +202,10 @@ int main() {
 }`;
 
 export const CODES: Record<string, string> = {
-    js: JS_CODE,
-    python: PYTHON_CODE,
-    go: GO_CODE,
-    java: JAVA_CODE,
-    c: C_CODE,
-    curl: CURL_CODE
+  js: JS_CODE,
+  python: PYTHON_CODE,
+  go: GO_CODE,
+  java: JAVA_CODE,
+  c: C_CODE,
+  curl: CURL_CODE
 };

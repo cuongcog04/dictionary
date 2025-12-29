@@ -4,7 +4,7 @@ import SourcesSection from './SourcesSection';
 
 export default function DictionaryDocumentation() {
     return (
-        <section id="docs" className="max-w-3xl mx-auto pt-12">
+        <section id="docs" className=" mx-auto pt-12">
             <h2 className="text-xl font-semibold mb-8 pb-2 border-b border-gray-200 dark:border-gray-800">
                 Tài liệu API
             </h2>

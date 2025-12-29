@@ -41,12 +41,12 @@ export default function DictionaryHeader() {
                     <AnimatePresence mode="popLayout" initial={false}>
                         <motion.span
                             key={index}
-                            initial={{ y: 25, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -25, opacity: 0 }}
+                            initial={{ x: 0, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            exit={{ x: 0, opacity: 0 }}
                             transition={{
-                                opacity: { duration: 0.3 },
-                                y: { duration: 0.4, ease: "easeOut" }
+                                opacity: { duration: 0.3, ease: "easeInOut" },
+                                x: { duration: 0.5, ease: "easeInOut" }
                             }}
                             className="inline-flex items-center gap-2 whitespace-nowrap"
                         >
@@ -59,7 +59,7 @@ export default function DictionaryHeader() {
                 <motion.span
                     layout
                     transition={{
-                        layout: { duration: 0.6, ease: [0.4, 0, 0.2, 1] }
+                        layout: { duration: 0.6, ease: "easeInOut" }
                     }}
                 >
                     Free

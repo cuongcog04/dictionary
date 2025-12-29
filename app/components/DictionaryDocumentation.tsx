@@ -231,8 +231,13 @@ export default function DictionaryDocumentation() {
                                 Lưu ý về Encoding
                             </h4>
                             <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                                Tiếng Việt có dấu cần được encode theo chuẩn <strong>UTF-8 URL encoding</strong>.
+                                Tiếng Việt có dấu cần được encode theo chuẩn <strong>UTF-8 URL encoding</strong>:
                             </p>
+                            <div className="bg-white dark:bg-[#0a0a0a] rounded-lg p-3 font-mono text-xs overflow-x-auto border border-blue-100 dark:border-blue-900/30">
+                                <div className="text-gray-500 dark:text-gray-500">{`// JavaScript`}</div>
+                                <div><span className="text-blue-600 dark:text-blue-400">encodeURIComponent</span>(<span className="text-emerald-600 dark:text-emerald-400">&quot;học sinh&quot;</span>)</div>
+                                <div className="text-gray-400 dark:text-gray-600 mt-1">→ &quot;h%E1%BB%8Dc%20sinh&quot;</div>
+                            </div>
                         </div>
 
                         <div className="p-5 rounded-xl bg-emerald-50/50 dark:bg-emerald-900/10 border border-emerald-100 dark:border-emerald-900/20">

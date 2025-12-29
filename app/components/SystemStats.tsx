@@ -17,6 +17,14 @@ export default function SystemStats() {
                         <span>Định nghĩa chi tiết:</span>
                         <span className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">443,116</span>
                     </li>
+                    <li className="flex items-center justify-between">
+                        <span>Từ vựng có ví dụ minh họa:</span>
+                        <span className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">169,931</span>
+                    </li>
+                    <li className="flex items-center justify-between">
+                        <span>Tổng số ngôn ngữ:</span>
+                        <span className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">&gt; 1,500</span>
+                    </li>
                 </ul>
             </div>
             <div className="p-5 md:p-6 rounded-2xl bg-amber-50/50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/20">
@@ -42,6 +50,10 @@ export default function SystemStats() {
                     <li className="flex gap-2">
                         <span className="text-amber-500 font-bold">●</span>
                         <span>Hỗ trợ RESTful API & JSON</span>
+                    </li>
+                    <li className="flex gap-2">
+                        <span className="text-amber-500 font-bold">●</span>
+                        <span>Tra cứu đa ngôn ngữ (Anh, Trung, Nhật, Hàn...)</span>
                     </li>
                 </ul>
             </div>

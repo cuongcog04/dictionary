@@ -110,7 +110,7 @@ export default function SourcesSection() {
 
                     <div className="p-3 bg-blue-50 dark:bg-blue-900/10 rounded-lg border border-blue-100 dark:border-blue-900/20">
                         <p className="text-blue-700 dark:text-blue-300 text-xs">
-                            <strong>📌 Lưu ý:</strong> Khi sử dụng API, vui lòng dẫn link đến <a href="https://dict.minhqnd.com" className="underline font-medium">dict.minhqnd.com</a> để người dùng có thể xem các nguồn gốc và giấy phép chi tiết của từng nguồn dữ liệu.
+                            <strong>📌 Lưu ý:</strong> Khi sử dụng API, vui lòng dẫn link đến <a href="https://dict.minhqnd.com" className="underline font-medium">dict.minhqnd.com</a> để người dùng có thể xem các nguồn và giấy phép chi tiết của từng nguồn dữ liệu gốc.
                         </p>
                     </div>
                 </div>

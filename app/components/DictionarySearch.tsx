@@ -4,16 +4,16 @@ import { LookupResult } from '../types';
 // Dictionary types: word_lang -> def_lang
 const DICTIONARY_TYPES = [
     { code: '', label: 'Tất cả', wordLang: '', defLang: '' },
-    { code: 'vi-vi', label: '🇻🇳 Việt → Việt', wordLang: 'vi', defLang: 'vi' },
-    { code: 'vi-en', label: '🇻🇳 Việt → Anh', wordLang: 'vi', defLang: 'en' },
-    { code: 'en-vi', label: '🇬🇧 Anh → Việt', wordLang: 'en', defLang: 'vi' },
-    { code: 'zh-vi', label: '🇨🇳 Trung → Việt', wordLang: 'zh', defLang: 'vi' },
-    { code: 'ja-vi', label: '🇯🇵 Nhật → Việt', wordLang: 'ja', defLang: 'vi' },
-    { code: 'ko-vi', label: '🇰🇷 Hàn → Việt', wordLang: 'ko', defLang: 'vi' },
-    { code: 'fr-vi', label: '🇫🇷 Pháp → Việt', wordLang: 'fr', defLang: 'vi' },
-    { code: 'de-vi', label: '🇩🇪 Đức → Việt', wordLang: 'de', defLang: 'vi' },
-    { code: 'ru-vi', label: '🇷🇺 Nga → Việt', wordLang: 'ru', defLang: 'vi' },
-    { code: 'th-vi', label: '🇹🇭 Thái → Việt', wordLang: 'th', defLang: 'vi' },
+    { code: 'vi-vi', label: '🇻🇳 VI-VI', wordLang: 'vi', defLang: 'vi' },
+    { code: 'vi-en', label: '🇻🇳 VI-EN', wordLang: 'vi', defLang: 'en' },
+    { code: 'en-vi', label: '🇬🇧 EN-VI', wordLang: 'en', defLang: 'vi' },
+    { code: 'zh-vi', label: '🇨🇳 VI-ZH', wordLang: 'zh', defLang: 'vi' },
+    { code: 'ja-vi', label: '🇯🇵 VI-JA', wordLang: 'ja', defLang: 'vi' },
+    { code: 'ko-vi', label: '🇰🇷 VI-KO', wordLang: 'ko', defLang: 'vi' },
+    { code: 'fr-vi', label: '🇫🇷 FR-VI', wordLang: 'fr', defLang: 'vi' },
+    { code: 'de-vi', label: '🇩🇪 DE-VI', wordLang: 'de', defLang: 'vi' },
+    { code: 'ru-vi', label: '🇷🇺 RU-VI', wordLang: 'ru', defLang: 'vi' },
+    { code: 'th-vi', label: '🇹🇭 TH-VI', wordLang: 'th', defLang: 'vi' },
 ];
 
 interface DictionarySearchProps {
@@ -101,12 +101,12 @@ export default function DictionarySearch({
     };
 
     return (
-        <section id="demo" className="max-w-2xl mx-auto mb-8">
+        <section id="demo" className="max-w-2xl mx-auto mb-8 text-sm">
             <h2 className="text-xl font-semibold mb-5 pb-2 border-b border-gray-200 dark:border-gray-800">
                 Tra cứu ngay:
             </h2>
 
-            <div className="relative mb-2">
+            <div className="relative mb-2 ">
                 {/* Combined Search Bar with Language Dropdown */}
                 <div className="flex items-center border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-blue-500/20 focus-within:border-blue-500 transition-all bg-white dark:bg-transparent">
                     {/* Search Icon */}

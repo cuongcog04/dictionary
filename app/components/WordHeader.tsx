@@ -12,7 +12,7 @@ export default function WordHeader({ word, audio }: WordHeaderProps) {
     };
 
     return (
-        <h2 className="text-3xl font-bold flex flex-wrap items-center gap-3 text-gray-900 dark:text-white">
+        <h2 className="text-2xl sm:text-3xl font-bold flex flex-wrap items-center gap-3 text-gray-900 dark:text-white">
             {word}
             {audio && (
                 <button

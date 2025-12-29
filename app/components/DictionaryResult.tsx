@@ -39,7 +39,7 @@ export default function DictionaryResult({ result, selectedLang, setSelectedLang
     return (
         <div className="bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 md:p-8 animate-in fade-in slide-in-from-bottom-4 duration-500 shadow-sm">
             {/* Word Header & Tabs */}
-            <div className="border-b border-gray-200 dark:border-gray-800 mb-6 pb-6">
+            <div className="border-b border-gray-200 dark:border-gray-800 mb-4 pb-4 sm:mb-6 sm:pb-6">
                 <WordHeader word={result.word} audio={currentResult.audio} />
                 <LanguageTabs results={result.results} selectedLang={selectedLang} setSelectedLang={setSelectedLang} />
             </div>
@@ -63,9 +63,9 @@ export default function DictionaryResult({ result, selectedLang, setSelectedLang
 
                 {/* Pronunciations */}
                 {currentResult.pronunciations && currentResult.pronunciations.length > 0 && (
-                    <div className="flex flex-wrap gap-3 mb-6">
+                    <div className="flex flex-nowrap gap-3 mb-6 overflow-x-auto no-scrollbar pb-1 cursor-grab active:cursor-grabbing">
                         {currentResult.pronunciations.map((p, idx) => (
-                            <div key={idx} className="flex items-center gap-2 text-sm bg-white dark:bg-black/20 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-800">
+                            <div key={idx} className="flex-shrink-0 flex items-center gap-2 text-xs sm:text-sm bg-white dark:bg-black/20 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-800 whitespace-nowrap shadow-sm">
                                 {p.region && (
                                     <span className="text-gray-500 dark:text-gray-400 font-medium text-xs uppercase tracking-wide">
                                         {p.region}:

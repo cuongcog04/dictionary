@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-    title: 'API Từ Điển Đa Ngôn Ngữ Free| @minhqnd',
-    description: 'API tra cứu từ điển đa ngôn ngữ miễn phí với hơn 370,000 từ và 500,000 định nghĩa. Hỗ trợ RESTful API, JSON response, tìm kiếm nhanh. Giấy phép CC BY-SA 4.0.',
+    title: 'API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd',
+    description: 'Tra cứu nghĩa 357,000+ từ vựng, 443,000+ định nghĩa với ví dụ, phát âm IPA, từ đồng nghĩa. RESTful API JSON miễn phí. Hỗ trợ Việt, Anh, Trung, Nhật, Hàn.',
     keywords: [
         'từ điển tiếng việt',
         'api từ điển',
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     authors: [{ name: 'minhqnd', url: 'https://dict.minhqnd.com' }],
     creator: '@minhqnd',
     openGraph: {
-        title: 'API Từ Điển Đa Ngôn Ngữ Free | @minhqnd',
-        description: 'API tra cứu từ điển miễn phí với hơn 370,000 từ. RESTful API, JSON response, tìm kiếm nhanh.',
+        title: 'API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd',
+        description: 'Tra cứu nghĩa 357,000+ từ vựng, 443,000+ định nghĩa với ví dụ, phát âm IPA, từ đồng nghĩa. RESTful API JSON miễn phí.',
         url: 'https://dict.minhqnd.com',
         siteName: 'dict.minhqnd.com',
         locale: 'vi_VN',
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'API Từ Điển Đa Ngôn Ngữ Free | @minhqnd',
-        description: 'API tra cứu từ điển miễn phí với hơn 370,000 từ và 500,000 định nghĩa.',
+        title: 'API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd',
+        description: 'Tra cứu nghĩa 357,000+ từ vựng, 443,000+ định nghĩa với ví dụ, phát âm IPA, từ đồng nghĩa. RESTful API JSON miễn phí.',
         creator: '@minhqnd',
         images: ['https://minhqnd.com/api/og?title=API+Từ+Điển+Đa%0A+Ngôn+Ngữ+Free&description=Tra+cứu+hơn+370,000+từ+miễn+phí+với+nghĩa+chi+tiết+và+ví+dụ.&logo=true'],
     },

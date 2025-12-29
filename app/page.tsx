@@ -38,7 +38,7 @@ export default function DictionaryPage() {
     const defLang = getDefLang(filterLang);
 
     return (
-        <div className="min-h-screen bg-white text-gray-900 px-6 transition-colors duration-300 dark:bg-[#0a0a0a] dark:text-[#e5e5e5] scroll-smooth selection:bg-blue-100 dark:selection:bg-blue-900/30">
+        <div className="min-h-screen bg-white text-gray-900 px-4 sm:px-6 transition-colors duration-300 dark:bg-[#0a0a0a] dark:text-[#e5e5e5] scroll-smooth selection:bg-blue-100 dark:selection:bg-blue-900/30">
             <DictionaryHeader />
 
             <main className="max-w-4xl mx-auto">

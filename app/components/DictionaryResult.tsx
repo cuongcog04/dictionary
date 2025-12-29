@@ -27,7 +27,7 @@ export default function DictionaryResult({ result, selectedLang, setSelectedLang
     // If no meanings match the filter, don't show this result
     if (filteredMeanings.length === 0 && defLang) {
         return (
-            <div className="bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 md:p-8 animate-in fade-in slide-in-from-bottom-4 duration-500 shadow-sm">
+            <div className="bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-gray-800 rounded-2xl p-4 sm:p-6 md:p-8 animate-in fade-in slide-in-from-bottom-4 duration-500 shadow-sm">
                 <WordHeader word={result.word} audio={currentResult.audio} />
                 <div className="text-center py-8 text-gray-500 dark:text-gray-400 italic">
                     Không có định nghĩa {defLang === 'en' ? 'tiếng Anh' : 'tiếng Việt'} cho từ này
@@ -37,7 +37,7 @@ export default function DictionaryResult({ result, selectedLang, setSelectedLang
     }
 
     return (
-        <div className="bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 md:p-8 animate-in fade-in slide-in-from-bottom-4 duration-500 shadow-sm">
+        <div className="bg-gray-50 dark:bg-[#141414] border border-gray-200 dark:border-gray-800 rounded-2xl p-4 sm:p-6 md:p-8 animate-in fade-in slide-in-from-bottom-4 duration-500 shadow-sm">
             {/* Word Header & Tabs */}
             <div className="border-b border-gray-200 dark:border-gray-800 mb-4 pb-4 sm:mb-6 sm:pb-6">
                 <WordHeader word={result.word} audio={currentResult.audio} />

@@ -113,8 +113,9 @@ export default function DictionaryDocumentation() {
                             {/* LanguageResult Object */}
                             <div className="overflow-x-auto border border-gray-200 dark:border-gray-800 rounded-xl mb-4">
                                 <div className="px-5 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider sticky left-0 shadow-sm">LanguageResult</div>
-                                <table className="w-full text-[13px] text-left">
+                                <table className="w-full min-w-[500px] text-[13px] text-left">
                                     <thead className="bg-gray-50 dark:bg-[#111] text-gray-600 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-800">
+
                                         <tr>
                                             <th className="px-5 py-3">Trường</th>
                                             <th className="px-5 py-3">Kiểu</th>
@@ -136,8 +137,9 @@ export default function DictionaryDocumentation() {
                             {/* Meaning Object */}
                             <div className="overflow-x-auto border border-gray-200 dark:border-gray-800 rounded-xl mb-4">
                                 <div className="px-5 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider sticky left-0 shadow-sm">Meaning</div>
-                                <table className="w-full text-[13px] text-left">
+                                <table className="w-full min-w-[500px] text-[13px] text-left">
                                     <thead className="bg-gray-50 dark:bg-[#111] text-gray-600 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-800">
+
                                         <tr>
                                             <th className="px-5 py-3">Trường</th>
                                             <th className="px-5 py-3">Kiểu</th>

@@ -1,20 +1,31 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { LookupResult } from '../types';
 
-export function useDictionarySearch() {
-    const [query, setQuery] = useState('');
+interface UseDictionarySearchOptions {
+    initialWord?: string;
+    initialResult?: LookupResult | null;
+    updateUrl?: boolean;
+}
+
+export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
+    const { initialWord = '', initialResult = null, updateUrl = false } = options;
+    const router = useRouter();
+
+    const [query, setQuery] = useState(initialWord);
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(-1);
-    const [result, setResult] = useState<LookupResult | null>(null);
+    const [result, setResult] = useState<LookupResult | null>(initialResult);
     const [loading, setLoading] = useState(false);
     const [inlineCompletion, setInlineCompletion] = useState('');
     const [selectedLang, setSelectedLang] = useState(0);
     const [filterLang, setFilterLang] = useState(''); // Language filter for API
     const queryRef = useRef(query);
-    const lastSearchedRef = useRef('');
+    const lastSearchedRef = useRef(initialWord);
     const skipSuggestRef = useRef(false);
     const filterLangRef = useRef(filterLang);
+    const isInitialMount = useRef(true);
 
     // Keep refs in sync
     useEffect(() => {
@@ -38,11 +49,17 @@ export function useDictionarySearch() {
             return;
         }
 
+        // Don't show suggestions if we already have a valid result for this query
+        if (result?.exists && result?.word?.toLowerCase() === query.trim().toLowerCase()) {
+            return;
+        }
+
         const currentQuery = query;
         const timer = setTimeout(async () => {
             try {
                 const res = await fetch(`/api/v1/suggest?q=${encodeURIComponent(currentQuery)}`);
                 const data = await res.json();
+                // Double-check we still need suggestions (result might have loaded)
                 if (queryRef.current === currentQuery && data.suggestions?.length > 0) {
                     setSuggestions(data.suggestions);
                     setShowSuggestions(true);
@@ -56,10 +73,10 @@ export function useDictionarySearch() {
             } catch {
                 setSuggestions([]);
             }
-        }, 50);
+        }, 30);
 
         return () => clearTimeout(timer);
-    }, [query]);
+    }, [query, result]);
 
     const searchWord = useCallback(async (word: string, lang?: string) => {
         if (!word.trim()) {
@@ -88,16 +105,29 @@ export function useDictionarySearch() {
             if (data.exists) {
                 setShowSuggestions(false);
                 setInlineCompletion('');
+
+                // Update URL if enabled
+                if (updateUrl) {
+                    const newUrl = `/word/${encodeURIComponent(word.trim())}`;
+                    router.push(newUrl, { scroll: false });
+                }
             }
         } catch (err) {
             console.error(err);
         } finally {
             setLoading(false);
         }
-    }, []);
+    }, [updateUrl, router]);
 
-    // Auto search with debounce
+    // Auto search with debounce (skip initial if we have initial result)
     useEffect(() => {
+        if (isInitialMount.current) {
+            isInitialMount.current = false;
+            if (initialResult) {
+                return; // Skip auto-search on mount if we have initial result
+            }
+        }
+
         const trimmedQuery = query.trim();
         if (trimmedQuery === lastSearchedRef.current) {
             return;
@@ -106,9 +136,9 @@ export function useDictionarySearch() {
         const timer = setTimeout(() => {
             lastSearchedRef.current = trimmedQuery;
             searchWord(query);
-        }, 500);
+        }, 300);
         return () => clearTimeout(timer);
-    }, [query, searchWord]);
+    }, [query, searchWord, initialResult]);
 
     const selectSuggestion = useCallback((word: string) => {
         skipSuggestRef.current = true;

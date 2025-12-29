@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         type: 'website',
         images: [
             {
-                url: 'https://dict.minhqnd.com/api/og?title=API+Từ+Điển+Đa+Ngôn+Ngữ+Free&description=Tra+cứu+hơn+370,000+từ+miễn+phí+với+nghĩa+chi+tiết+và+ví+dụ.&logo=true',
+                url: 'https://minhqnd.com/api/og?title=API+Từ+Điển+Đa%0A+Ngôn+Ngữ+Free&description=Tra+cứu+hơn+370,000+từ+miễn+phí+với+nghĩa+chi+tiết+và+ví+dụ.&logo=true',
                 width: 1200,
                 height: 630,
                 alt: 'API Từ Điển Free',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         title: 'API Từ Điển Đa Ngôn Ngữ Free | @minhqnd',
         description: 'API tra cứu từ điển miễn phí với hơn 370,000 từ và 500,000 định nghĩa.',
         creator: '@minhqnd',
-        images: ['https://dict.minhqnd.com/api/og?title=API+Từ+Điển+Đa+Ngôn+Ngữ+Free&description=Tra+cứu+hơn+370,000+từ+miễn+phí+với+nghĩa+chi+tiết+và+ví+dụ.&logo=true'],
+        images: ['https://minhqnd.com/api/og?title=API+Từ+Điển+Đa%0A+Ngôn+Ngữ+Free&description=Tra+cứu+hơn+370,000+từ+miễn+phí+với+nghĩa+chi+tiết+và+ví+dụ.&logo=true'],
     },
     robots: {
         index: true,

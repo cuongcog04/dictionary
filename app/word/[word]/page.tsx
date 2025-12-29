@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             type: 'article',
             images: [
                 {
-                    url: `https://dict.minhqnd.com/api/og?title=${encodeURIComponent(word + ' là gì?')}&description=${encodeURIComponent(firstDefinition.slice(0, 100))}`,
+                    url: `https://minhqnd.com/api/og?title=${encodeURIComponent(word + ' là gì?')}&description=${encodeURIComponent(firstDefinition.slice(0, 100))}`,
                     width: 1200,
                     height: 630,
                     alt: `Nghĩa của từ ${word}`,

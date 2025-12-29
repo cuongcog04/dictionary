@@ -59,7 +59,7 @@ export default function DictionaryLayout({
 }) {
     return (
         <html lang="vi">
-            <body>
+            <body className="bg-white dark:bg-[#0a0a0a]">
                 {children}
             </body>
         </html>

@@ -130,25 +130,27 @@ function SourceItem({ emoji, label, link, linkText, description, license, licens
     licenseUrl?: string
 }) {
     return (
-        <div className="flex gap-3 items-start pt-2 border-t border-teal-100 dark:border-teal-900/30 first:border-0 first:pt-0">
-            <span className="text-teal-500 mt-0.5">{emoji}</span>
-            <div className="flex-1">
-                <div className="flex items-center justify-between gap-2 flex-wrap">
-                    <span className="font-medium text-gray-900 dark:text-white">{label}</span>
+        <div className="flex gap-3 items-start pt-3 border-t border-teal-100 dark:border-teal-900/30 first:border-0 first:pt-0">
+            <span className="text-teal-500 mt-1 sm:mt-0.5 text-base sm:text-lg">{emoji}</span>
+            <div className="flex-1 min-w-0">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
+                    <span className="font-medium text-gray-900 dark:text-white text-sm sm:text-base truncate">{label}</span>
                     {license && (
-                        <a
-                            href={licenseUrl}
-                            target="_blank"
-                            rel="noopener"
-                            className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                        >
-                            {license}
-                        </a>
+                        <div className="flex">
+                            <a
+                                href={licenseUrl}
+                                target="_blank"
+                                rel="noopener"
+                                className="text-[10px] sm:text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors whitespace-nowrap"
+                            >
+                                {license}
+                            </a>
+                        </div>
                     )}
                 </div>
-                {description && <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">{description}</p>}
+                {description && <p className="text-gray-500 dark:text-gray-400 text-[11px] sm:text-xs mt-0.5 leading-relaxed">{description}</p>}
                 {link && (
-                    <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5">
+                    <p className="text-gray-500 dark:text-gray-400 text-[11px] sm:text-xs mt-0.5 truncate">
                         Nguồn từ: <a href={link} target="_blank" rel="noopener" className="text-teal-600 dark:text-teal-400 hover:underline">{linkText}</a>
                     </p>
                 )}

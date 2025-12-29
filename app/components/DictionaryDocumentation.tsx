@@ -15,10 +15,12 @@ export default function DictionaryDocumentation() {
 
                 {/* Lookup API */}
                 <div>
-                    <div className="flex items-center gap-3 mb-6">
-                        <span className="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded">GET</span>
-                        <div className="overflow-x-auto">
-                            <code className="text-lg font-mono font-bold text-gray-900 dark:text-white">https://dict.minhqnd.com/api/dictionary/lookup</code>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+                        <div className="flex items-center gap-3">
+                            <span className="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded">GET</span>
+                            <div className="overflow-x-auto">
+                                <code className="text-base sm:text-lg font-mono font-bold text-gray-900 dark:text-white whitespace-nowrap">https://dict.minhqnd.com/api/dictionary/lookup</code>
+                            </div>
                         </div>
                     </div>
 
@@ -27,7 +29,7 @@ export default function DictionaryDocumentation() {
                             <h4 className="text-sm font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-4 flex items-center gap-2">
                                 Tham số truy vấn (Query)
                             </h4>
-                            <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl">
+                            <div className="overflow-x-auto border border-gray-200 dark:border-gray-800 rounded-xl">
                                 <table className="w-full text-sm text-left">
                                     <thead className="bg-gray-50 dark:bg-[#111] text-gray-600 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-800">
                                         <tr>
@@ -76,8 +78,8 @@ export default function DictionaryDocumentation() {
                             </h4>
 
                             {/* Root Object */}
-                            <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl mb-4">
-                                <div className="px-5 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Root Object</div>
+                            <div className="overflow-x-auto border border-gray-200 dark:border-gray-800 rounded-xl mb-4">
+                                <div className="px-5 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider sticky left-0 shadow-sm">Root Object</div>
                                 <table className="w-full text-[13px] text-left">
                                     <thead className="bg-gray-50 dark:bg-[#111] text-gray-600 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-800">
                                         <tr>
@@ -95,8 +97,8 @@ export default function DictionaryDocumentation() {
                             </div>
 
                             {/* LanguageResult Object */}
-                            <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl mb-4">
-                                <div className="px-5 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">LanguageResult</div>
+                            <div className="overflow-x-auto border border-gray-200 dark:border-gray-800 rounded-xl mb-4">
+                                <div className="px-5 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider sticky left-0 shadow-sm">LanguageResult</div>
                                 <table className="w-full text-[13px] text-left">
                                     <thead className="bg-gray-50 dark:bg-[#111] text-gray-600 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-800">
                                         <tr>
@@ -118,8 +120,8 @@ export default function DictionaryDocumentation() {
                             </div>
 
                             {/* Meaning Object */}
-                            <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl mb-4">
-                                <div className="px-5 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Meaning</div>
+                            <div className="overflow-x-auto border border-gray-200 dark:border-gray-800 rounded-xl mb-4">
+                                <div className="px-5 py-2 bg-gray-100 dark:bg-[#0a0a0a] text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider sticky left-0 shadow-sm">Meaning</div>
                                 <table className="w-full text-[13px] text-left">
                                     <thead className="bg-gray-50 dark:bg-[#111] text-gray-600 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-800">
                                         <tr>
@@ -178,7 +180,7 @@ export default function DictionaryDocumentation() {
                             <h4 className="text-sm font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-4">
                                 Mã lỗi HTTP
                             </h4>
-                            <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl">
+                            <div className="overflow-x-auto border border-gray-200 dark:border-gray-800 rounded-xl">
                                 <table className="w-full text-[13px] text-left">
                                     <thead className="bg-gray-50 dark:bg-[#111] text-gray-600 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-800">
                                         <tr>
@@ -236,16 +238,18 @@ export default function DictionaryDocumentation() {
 
                 {/* Suggest API Section */}
                 <div className="pt-8 border-t border-gray-200 dark:border-gray-800">
-                    <div className="flex items-center gap-3 mb-6">
-                        <span className="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded">GET</span>
-                        <div className="overflow-x-auto">
-                            <code className="text-lg font-mono font-bold text-gray-900 dark:text-white">https://dict.minhqnd.com/api/dictionary/suggest</code>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+                        <div className="flex items-center gap-3">
+                            <span className="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded">GET</span>
+                            <div className="overflow-x-auto">
+                                <code className="text-base sm:text-lg font-mono font-bold text-gray-900 dark:text-white whitespace-nowrap">https://dict.minhqnd.com/api/dictionary/suggest</code>
+                            </div>
                         </div>
                     </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 font-medium">
                         API gợi ý từ dựa trên prefix. Trả về danh sách các từ khớp với chuỗi tìm kiếm.
                     </p>
-                    <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl mb-6">
+                    <div className="overflow-x-auto border border-gray-200 dark:border-gray-800 rounded-xl mb-6">
                         <table className="w-full text-sm text-left">
                             <thead className="bg-gray-50 dark:bg-[#111] text-gray-600 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-800">
                                 <tr>
@@ -267,16 +271,18 @@ export default function DictionaryDocumentation() {
 
                 {/* TTS API Section */}
                 <div className="pt-8 border-t border-gray-200 dark:border-gray-800">
-                    <div className="flex items-center gap-3 mb-6">
-                        <span className="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded">GET</span>
-                        <div className="overflow-x-auto">
-                            <code className="text-lg font-mono font-bold text-gray-900 dark:text-white">https://dict.minhqnd.com/api/dictionary/tts</code>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+                        <div className="flex items-center gap-3">
+                            <span className="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded">GET</span>
+                            <div className="overflow-x-auto">
+                                <code className="text-base sm:text-lg font-mono font-bold text-gray-900 dark:text-white whitespace-nowrap">https://dict.minhqnd.com/api/dictionary/tts</code>
+                            </div>
                         </div>
                     </div>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
                         Endpoint tạo file âm thanh (TTS) cho từ vựng. Trả về file định dạng <code className="text-orange-500">audio/mpeg</code>.
                     </p>
-                    <div className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl mb-6">
+                    <div className="overflow-x-auto border border-gray-200 dark:border-gray-800 rounded-xl mb-6">
                         <table className="w-full text-sm text-left">
                             <thead className="bg-gray-50 dark:bg-[#111] text-gray-600 dark:text-gray-400 font-semibold border-b border-gray-200 dark:border-gray-800">
                                 <tr>

@@ -27,43 +27,52 @@ export default function DictionaryHeader() {
             <motion.h1
                 layout
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-4 flex flex-nowrap justify-center items-center gap-x-3"
+                className="text-4xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-4 flex flex-wrap justify-center items-center gap-x-3 px-4"
             >
-                <motion.span layout transition={{ duration: 0.5 }} className="flex-shrink-0">API Từ Điển</motion.span>
-
                 <motion.span
                     layout
-                    transition={{
-                        layout: { duration: 0.6, ease: [0.4, 0, 0.2, 1] }
-                    }}
-                    className="relative inline-flex items-center text-blue-600 dark:text-blue-400 h-[1.2em] whitespace-nowrap flex-shrink-0 overflow-visible"
+                    transition={{ duration: 0.5 }}
+                    className="w-full sm:w-auto flex-shrink-0"
                 >
-                    <AnimatePresence mode="popLayout" initial={false}>
-                        <motion.span
-                            key={index}
-                            initial={{ x: 0, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                            exit={{ x: 0, opacity: 0 }}
-                            transition={{
-                                opacity: { duration: 0.5, ease: "easeInOut" },
-                                x: { duration: 0.5, ease: "easeInOut" }
-                            }}
-                            className="inline-flex items-center gap-2 whitespace-nowrap"
-                        >
-                            {LANGUAGES[index].name}
-                            <span className="text-3xl md:text-4xl leading-none drop-shadow-sm">{LANGUAGES[index].flag}</span>
-                        </motion.span>
-                    </AnimatePresence>
+                    API Từ Điển
                 </motion.span>
 
-                <motion.span
-                    layout
-                    transition={{
-                        layout: { duration: 0.2, ease: "easeInOut" }
-                    }}
-                >
-                    Free
-                </motion.span>
+                <div className="flex items-center gap-3">
+                    <motion.span
+                        layout
+                        transition={{
+                            layout: { duration: 0.6, ease: [0.4, 0, 0.2, 1] }
+                        }}
+                        className="relative inline-flex items-center text-blue-600 dark:text-blue-400 min-h-[1.2em] whitespace-nowrap flex-shrink-0 overflow-visible"
+                    >
+                        <AnimatePresence mode="popLayout" initial={false}>
+                            <motion.span
+                                key={index}
+                                initial={{ y: 10, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                exit={{ y: -10, opacity: 0 }}
+                                transition={{
+                                    opacity: { duration: 0.4, ease: "easeInOut" },
+                                    y: { duration: 0.4, ease: "easeInOut" }
+                                }}
+                                className="inline-flex items-center gap-2 whitespace-nowrap"
+                            >
+                                {LANGUAGES[index].name}
+                                <span className="text-2xl sm:text-3xl md:text-4xl leading-none drop-shadow-sm">{LANGUAGES[index].flag}</span>
+                            </motion.span>
+                        </AnimatePresence>
+                    </motion.span>
+
+                    <motion.span
+                        layout
+                        transition={{
+                            layout: { duration: 0.2, ease: "easeInOut" }
+                        }}
+                        className="flex-shrink-0"
+                    >
+                        Free
+                    </motion.span>
+                </div>
             </motion.h1>
 
             <p className="text-lg text-gray-500 dark:text-gray-400 mb-8 max-w-2xl mx-auto px-4">

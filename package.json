@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "install-db": "[ -f ./lib/dictionary.db ] && echo 'DB exists, skipping download' || curl -L -o ./lib/dictionary.db https://github.com/minhqnd/dictionary/releases/latest/download/dictionary.db",
+    "install-db": "mkdir -p ./lib && ([ -f ./lib/dictionary.db ] && echo 'DB exists, skipping download' || curl --fail -L -o ./lib/dictionary.db https://github.com/minhqnd/dictionary/releases/latest/download/dictionary.db)",
     "build": "npm run install-db && next build",
     "start": "next start",
     "lint": "eslint"

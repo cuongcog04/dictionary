@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { LookupResult } from '../types';
 import { encodeWordSlug } from '@/lib/urlSlug';
+import { trackSearch } from '@/lib/gtag';
 
 interface UseDictionarySearchOptions {
     initialWord?: string;
@@ -110,6 +111,9 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
             if (data.exists) {
                 setShowSuggestions(false);
                 setInlineCompletion('');
+
+                // Track search event
+                trackSearch(word.trim());
 
                 // Update URL and title if enabled (use replaceState to avoid losing focus)
                 if (updateUrl) {

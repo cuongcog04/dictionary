@@ -1,4 +1,5 @@
 import { Relation } from '../types';
+import { trackWordClick } from '@/lib/gtag';
 
 interface RelationListProps {
     relations: Relation[];
@@ -7,6 +8,11 @@ interface RelationListProps {
 
 export default function RelationList({ relations, onWordClick }: RelationListProps) {
     if (!relations || relations.length === 0) return null;
+
+    const handleWordClick = (word: string, type: string) => {
+        trackWordClick(word, type);
+        onWordClick(word);
+    };
 
     const renderRelationGroup = (type: string, label: string, bgColor: string, txtColor: string, borderColor: string, hoverColor: string) => {
         const filtered = relations.filter(r => r.relation_type === type);
@@ -19,7 +25,7 @@ export default function RelationList({ relations, onWordClick }: RelationListPro
                     {filtered.map((r, idx) => (
                         <button
                             key={idx}
-                            onClick={() => onWordClick(r.related_word)}
+                            onClick={() => handleWordClick(r.related_word, type)}
                             className={`px-2.5 py-1 text-xs rounded-md border transition-colors ${bgColor} ${txtColor} ${borderColor} ${hoverColor} cursor-pointer`}
                         >
                             {r.related_word}
@@ -50,7 +56,7 @@ export default function RelationList({ relations, onWordClick }: RelationListPro
                             {relations.filter(r => r.relation_type !== 'Đồng nghĩa' && r.relation_type !== 'Trái nghĩa').map((r, idx) => (
                                 <button
                                     key={idx}
-                                    onClick={() => onWordClick(r.related_word)}
+                                    onClick={() => handleWordClick(r.related_word, r.relation_type)}
                                     className="px-2.5 py-1 text-xs rounded-md border transition-colors bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
                                     title={r.relation_type}
                                 >

@@ -1,3 +1,5 @@
+import { trackTTSPlay } from '@/lib/gtag';
+
 interface WordHeaderProps {
     word: string;
     audio: string | null;
@@ -6,6 +8,9 @@ interface WordHeaderProps {
 export default function WordHeader({ word, audio }: WordHeaderProps) {
     const playAudio = () => {
         if (audio) {
+            // Track TTS play event
+            trackTTSPlay(word);
+
             const player = new Audio(audio);
             player.play().catch(e => console.error('Audio play error:', e));
         }

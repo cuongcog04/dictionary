@@ -82,7 +82,7 @@ export default function DictionaryResult({ result, selectedLang, setSelectedLang
                 {/* Meanings */}
                 <div className="space-y-8">
                     {filteredMeanings.map((m, idx) => (
-                        <MeaningItem key={idx} meaning={m} index={idx} onWordClick={onWordClick} />
+                        <MeaningItem key={idx} meaning={m} index={idx} word={result.word} onWordClick={onWordClick} />
                     ))}
                 </div>
 

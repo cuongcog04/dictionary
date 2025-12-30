@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import './globals.css';
+
+const GA_MEASUREMENT_ID = 'G-YJKGC095KG';
 
 export const metadata: Metadata = {
     title: 'API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd',
@@ -59,6 +62,21 @@ export default function DictionaryLayout({
 }) {
     return (
         <html lang="vi">
+            <head>
+                {/* Google Analytics */}
+                <Script
+                    src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+                    strategy="afterInteractive"
+                />
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', '${GA_MEASUREMENT_ID}');
+                    `}
+                </Script>
+            </head>
             <body className="bg-white dark:bg-[#0a0a0a]">
                 {children}
             </body>

@@ -1,4 +1,5 @@
 import { Translation } from '../types';
+import { trackWordClick } from '@/lib/gtag';
 
 interface TranslationListProps {
     translations: Translation[];
@@ -7,6 +8,11 @@ interface TranslationListProps {
 
 export default function TranslationList({ translations, onWordClick }: TranslationListProps) {
     if (!translations || translations.length === 0) return null;
+
+    const handleWordClick = (word: string) => {
+        trackWordClick(word, 'translation');
+        onWordClick(word);
+    };
 
     return (
         <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
@@ -20,7 +26,7 @@ export default function TranslationList({ translations, onWordClick }: Translati
                 {translations.map((t, idx) => (
                     <button
                         key={idx}
-                        onClick={() => onWordClick(t.translation)}
+                        onClick={() => handleWordClick(t.translation)}
                         className="px-3 py-1.5 text-sm rounded-lg bg-purple-50 dark:bg-purple-900/10 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-900/30 hover:bg-purple-100 dark:hover:bg-purple-900/20 transition-colors cursor-pointer"
                     >
                         <span className="text-xs text-purple-400 dark:text-purple-500 mr-1">[{t.lang_name}]</span>

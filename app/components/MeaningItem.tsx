@@ -65,7 +65,7 @@ export default function MeaningItem({ meaning: m, index, word, onWordClick }: Me
 
     // Language badge for definition
     const langBadge = m.definition_lang === 'en' ? (
-        <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wide">
+        <span className="text-[10px] px-1.5 py-0.5 rounded bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 font-bold uppercase tracking-wide">
             EN
         </span>
     ) : null;

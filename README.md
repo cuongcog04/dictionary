@@ -131,20 +131,22 @@ Dữ liệu được tổng hợp từ các dự án mã nguồn mở:
 
 ---
 
----
-
 ## ⚖️ Giấy phép & Sử dụng
 
-API từ điển được cung cấp bởi **@minhqnd** theo giấy phép **[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.vi)**.
+Dự án này sử dụng mô hình **Giấy phép kép (Dual Licensing)** để phân tách rõ ràng giữa mã nguồn và dữ liệu:
 
-**Bạn được tự do:**
-- ✅ **Chia sẻ**: Sao chép và phân phối lại dữ liệu từ điển, kể cả thương mại.
-- ✅ **Chuyển thể**: Chỉnh sửa, bổ sung và xây dựng dựa trên dữ liệu từ điển.
+### 1. Mã nguồn (Application Code) - **MIT License**
+Toàn bộ mã nguồn trong repository này (Next.js, API logic, UI components) được phát hành dưới giấy phép **[MIT](LICENSE)**. Bạn có quyền tự do sử dụng, sao chép và chỉnh sửa cho cả mục đích cá nhân và thương mại.
 
-**Với điều kiện:**
-- 📌 **Ghi công**: Ghi nguồn `@minhqnd`, liên kết đến [dict.minhqnd.com](https://dict.minhqnd.com) và ghi chú nếu có thay đổi.
-- 📌 **Chia sẻ tương tự**: Phân phối bản chỉnh sửa theo cùng giấy phép CC BY-SA 4.0.
-- 📌 **Dẫn link nguồn**: Vui lòng dẫn link đến website để người dùng có thể tra cứu nguồn và giấy phép chi tiết của từng bộ dữ liệu gốc.
+### 2. Dữ liệu từ điển (Dictionary Data) - **CC BY-SA 4.0**
+Dữ liệu từ điển (bao gồm file `dictionary.db`) được cung cấp bởi **@minhqnd** theo giấy phép **[Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)](LICENSE-DATA.md)**.
+
+Điều này đảm bảo dữ liệu từ điển luôn được mở và cộng đồng có thể kế thừa, phát triển tiếp. Dữ liệu được tổng hợp từ nhiều nguồn mở (Wiktionary, Hồ Ngọc Đức, vntk...). Vui lòng tuân thủ các điều khoản ghi công khi sử dụng lại bộ dữ liệu này.
+
+**Khi sử dụng dữ liệu này, bạn cần:**
+- 📌 **Ghi công**: Ghi rõ nguồn `@minhqnd`, liên kết đến [dict.minhqnd.com](https://dict.minhqnd.com).
+- 📌 **Chia sẻ tương tự**: Nếu bạn chỉnh sửa và phân phối lại dữ liệu, bạn phải sử dụng cùng giấy phép CC BY-SA 4.0.
+- 📌 **Dẫn link nguồn**: Vui lòng dẫn link đến website để người dùng có thể tra cứu nguồn gốc chi tiết của từng bộ dữ liệu gốc (Wiktionary, Hồ Ngọc Đức, vntk...).
 
 ---
 

@@ -106,10 +106,10 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
                 setShowSuggestions(false);
                 setInlineCompletion('');
 
-                // Update URL if enabled
+                // Update URL if enabled (use replaceState to avoid losing focus)
                 if (updateUrl) {
                     const newUrl = `/word/${encodeURIComponent(word.trim())}`;
-                    router.push(newUrl, { scroll: false });
+                    window.history.replaceState(null, '', newUrl);
                 }
             }
         } catch (err) {

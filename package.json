@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "install-db": "[ -f ./lib/dictionary.db ] && echo 'DB exists, skipping download' || curl -L -o ./lib/dictionary.db https://github.com/minhqnd/dictionary/releases/latest/download/dictionary.db",
+    "build": "npm run install-db && next build",
     "start": "next start",
-    "lint": "eslint",
-    "postinstall": "npm rebuild better-sqlite3"
+    "lint": "eslint"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

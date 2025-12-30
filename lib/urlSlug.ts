@@ -28,15 +28,24 @@ export function encodeWordSlug(word: string): string {
 
 /**
  * Decode URL slug back to original word
+ * Handles both new format (hyphen) and legacy format (underscore)
  * @param slug - URL slug (may be URI encoded)
  * @returns Original word with spaces and hyphens restored
  */
 export function decodeWordSlug(slug: string): string {
     // First decode URI component for special chars
     const decoded = decodeURIComponent(slug);
-    // Replace single hyphens with spaces, then restore double hyphens to single
+
+    // Check if using legacy underscore format
+    if (decoded.includes('_') && !decoded.includes('-')) {
+        // Legacy format: underscore → space
+        return decoded.replace(/_/g, ' ');
+    }
+
+    // New format: double hyphen → hyphen, single hyphen → space
     return decoded
         .replace(/--/g, '\x00')  // Temp placeholder for real hyphens
         .replace(/-/g, ' ')       // Single hyphen becomes space
         .replace(/\x00/g, '-');   // Restore real hyphens
 }
+

@@ -17,9 +17,9 @@ export default function DictionaryFooter() {
             </div>
             <p className="mb-2">© 2025 <a href="https://dict.minhqnd.com" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-700 dark:hover:text-white transition-colors">@minhqnd</a></p>
             <nav className="flex justify-center items-center gap-2">
-                <Link href="/privacy" className="text-gray-500 hover:text-gray-700 dark:hover:text-white transition-colors">Chính sách Bảo mật</Link>
+                <Link href="https://minhqnd.com/privacy" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-700 dark:hover:text-white transition-colors">Chính sách Bảo mật</Link>
                 <span className="text-gray-200 dark:text-gray-800">•</span>
-                <Link href="/terms" className="text-gray-500 hover:text-gray-700 dark:hover:text-white transition-colors">Điều khoản Dịch vụ</Link>
+                <Link href="https://minhqnd.com/terms" target="_blank" rel="noopener" className="text-gray-500 hover:text-gray-700 dark:hover:text-white transition-colors">Điều khoản Dịch vụ</Link>
             </nav>
         </footer>
     );

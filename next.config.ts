@@ -6,6 +6,27 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/**/*": ["./lib/dictionary.db"],
   },
+  async headers() {
+    return [
+      {
+        source: '/word/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=31536000',
+          },
+          {
+            key: 'CDN-Cache-Control',
+            value: 'public, s-maxage=86400, stale-while-revalidate=31536000',
+          },
+          {
+            key: 'Vercel-CDN-Cache-Control',
+            value: 'public, s-maxage=86400, stale-while-revalidate=31536000',
+          },
+        ],
+      },
+    ];
+  },
   async rewrites() {
     return [
       // Sitemap index: /sitemap.xml -> /sitemap

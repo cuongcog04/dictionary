@@ -21,8 +21,13 @@ function renderDefinitionWithLinks(
 
     // Build regex pattern to match any link (case-insensitive)
     // Escape special regex characters and join with |
+    // Use Unicode-aware boundaries (whitespace, punctuation, start/end of string)
+    // JavaScript \b doesn't work well with Vietnamese characters
     const escapedLinks = links.map(l => l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-    const pattern = new RegExp(`(${escapedLinks.join('|')})`, 'gi');
+    // Sort by length descending so longer phrases match first (e.g., "nghệ an" before "an")
+    escapedLinks.sort((a, b) => b.length - a.length);
+    // Use lookbehind/lookahead for proper word boundaries
+    const pattern = new RegExp(`(?<=^|[\\s.,;:!?()\\[\\]{}'"'"—–-])(${escapedLinks.join('|')})(?=$|[\\s.,;:!?()\\[\\]{}'"'"—–-])`, 'gi');
 
     const parts = definition.split(pattern);
 

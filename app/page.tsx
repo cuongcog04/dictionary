@@ -5,9 +5,9 @@ function WebsiteSchema() {
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        'name': 'API Từ Điển Đa Ngôn Ngữ Free | @minhqnd',
+        'name': 'API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd',
         'url': 'https://dict.minhqnd.com',
-        'description': 'API từ điển đa ngôn ngữ miễn phí với hơn 357,000 từ vựng',
+        'description': 'Tra cứu nghĩa 357,000+ từ vựng, 443,000+ định nghĩa với ví dụ, phát âm IPA, từ đồng nghĩa. RESTful API JSON miễn phí.',
         'potentialAction': {
             '@type': 'SearchAction',
             'target': {

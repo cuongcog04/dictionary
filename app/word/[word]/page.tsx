@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         : `Tra cứu nghĩa, cách dùng và ví dụ của từ "${word}"`;
 
     return {
-        title: `"${word}" là gì? Nghĩa của từ ${word} - API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd`,
+        title: `"${word}" là gì? - API Từ Điển Miễn Phí | minhqnd`,
         description: `${word}: ${firstDefinition}. Tra cứu miễn phí với ví dụ đặt câu, từ đồng nghĩa, phát âm.`,
         keywords: [
             `${word} nghĩa là gì`,
@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             `ví dụ ${word}`,
         ],
         openGraph: {
-            title: `"${word}" là gì? - API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd`,
-            description: firstDefinition,
+            title: `"${word}" là gì? - API Từ Điển Miễn Phí | minhqnd`,
+            description: `${firstDefinition} - "Tra cứu nghĩa, cách dùng và ví dụ của từ "${word}"`,
             url: `https://dict.minhqnd.com/word/${encodeWordSlug(word)}`,
             siteName: 'dict.minhqnd.com',
             locale: 'vi_VN',

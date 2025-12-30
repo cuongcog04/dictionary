@@ -67,6 +67,20 @@ export function trackCopyDefinition(word: string, definition: string) {
 }
 
 /**
+ * Track code copy event in documentation
+ * @param type - Type of code copied (e.g., 'curl', 'javascript', 'json_success')
+ * @param content - The content that was copied (optional, truncated)
+ */
+export function trackCopyCode(type: string, content?: string) {
+    if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'copy_code', {
+            code_type: type,
+            code_preview: content ? content.slice(0, 50) : undefined,
+        });
+    }
+}
+
+/**
  * Track page view with custom parameters
  * @param pagePath - The page path
  * @param pageTitle - The page title

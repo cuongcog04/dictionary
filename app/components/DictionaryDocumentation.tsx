@@ -331,6 +331,8 @@ export default function DictionaryDocumentation() {
     );
 }
 
+import { trackCopyCode } from '@/lib/gtag';
+
 function CopyableJSON({ content, colorClass }: { content: string; colorClass: string }) {
     const [copied, setCopied] = useState(false);
 
@@ -345,6 +347,13 @@ function CopyableJSON({ content, colorClass }: { content: string; colorClass: st
             document.execCommand('copy');
             document.body.removeChild(textarea);
         }
+
+        // Determine type based on content content (simple heuristic or passed prop would be better, but heuristic is ok for now)
+        // Actually, let's just use 'json_response' as generic type or try to guess.
+        // Better yet, update CopyableJSON props to accept a type label or just track generic 'json'.
+        // The user asked for "copy json", so 'json' is fine.
+        trackCopyCode('json_response', content);
+
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { CODES } from '../constants';
+import { trackCopyCode } from '@/lib/gtag';
 
 export default function CodeExamples() {
     const [codeTab, setCodeTab] = useState<'js' | 'python' | 'go' | 'java' | 'c' | 'curl'>('js');
@@ -17,6 +18,7 @@ export default function CodeExamples() {
             document.execCommand('copy');
             document.body.removeChild(textarea);
         }
+        trackCopyCode(codeTab, text);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };

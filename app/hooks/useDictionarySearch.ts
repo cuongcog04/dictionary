@@ -158,6 +158,8 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
         setShowSuggestions(false);
         setInlineCompletion('');
         searchWord(word);
+        // Scroll to top when selecting a related word
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [searchWord]);
 
     return {

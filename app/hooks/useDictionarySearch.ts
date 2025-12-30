@@ -120,7 +120,7 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
                     const newUrl = `/word/${encodeWordSlug(word)}`;
                     window.history.replaceState(null, '', newUrl);
                     // Update document title to match the searched word
-                    document.title = `${word.trim()} là gì? - API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd`;
+                    document.title = `"${word}" là gì?, nghĩa của "${word}" | API Từ Điển Free minhqnd`;
                 }
             }
         } catch (err) {

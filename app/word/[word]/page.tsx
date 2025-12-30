@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const firstDefinition = rawDefinition.replace(/["\n\r]/g, '');
 
     return {
-        title: `"${word}" là gì? Nghĩa của từ "${word}" | API Từ Điển Free | minhqnd`,
+        title: `"${word}" là gì? Nghĩa của "${word}" | API Từ Điển Free minhqnd`,
         description: `${word}: ${firstDefinition}. Tra cứu miễn phí với ví dụ đặt câu, từ đồng nghĩa, phát âm của từ "${word}"`,
         keywords: [
             `${word} nghĩa là gì`,
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             `ví dụ ${word}`,
         ],
         openGraph: {
-            title: `"${word}" là gì? | API Từ Điển Free | minhqnd`,
+            title: `"${word}" là gì? | API Từ Điển Free minhqnd`,
             description: `${firstDefinition}. Tra cứu nghĩa và ví dụ miễn phí.`,
             url: `https://dict.minhqnd.com/word/${encodeWordSlug(word)}`,
             siteName: 'dict.minhqnd.com',

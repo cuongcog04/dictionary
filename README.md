@@ -35,7 +35,7 @@ Bạn có thể tải xuống toàn bộ dữ liệu từ điển dưới dạng
 ## 🚀 API Endpoints
 
 ### 1. Tra cứu từ vựng (Lookup)
-`GET /api/v1/lookup?word={word}&lang={lang}&def_lang={def_lang}`
+`GET https://dict.minhqnd.com/api/v1/lookup?word={word}&lang={lang}&def_lang={def_lang}`
 
 | Tham số | Bắt buộc | Mô tả |
 | :--- | :---: | :--- |
@@ -44,7 +44,7 @@ Bạn có thể tải xuống toàn bộ dữ liệu từ điển dưới dạng
 | `def_lang`| No | Lọc ngôn ngữ định nghĩa (`vi` hoặc `en`) |
 
 ### 2. Gợi ý từ (Suggest)
-`GET /api/v1/suggest?q={prefix}&limit={limit}`
+`GET https://dict.minhqnd.com/api/v1/suggest?q={prefix}&limit={limit}`
 
 | Tham số | Bắt buộc | Mô tả |
 | :--- | :---: | :--- |
@@ -52,7 +52,7 @@ Bạn có thể tải xuống toàn bộ dữ liệu từ điển dưới dạng
 | `limit` | No | Giới hạn kết quả (1-20, mặc định: 5) |
 
 ### 3. Phát âm (TTS)
-`GET /api/v1/tts?word={word}&lang={lang}`
+`GET https://dict.minhqnd.com/api/v1/tts?word={word}&lang={lang}`
 
 | Tham số | Bắt buộc | Mô tả |
 | :--- | :---: | :--- |

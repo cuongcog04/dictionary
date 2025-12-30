@@ -29,6 +29,12 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
     const filterLangRef = useRef(filterLang);
     const isInitialMount = useRef(true);
 
+    // Cache for prefix-based local filtering
+    const suggestCacheRef = useRef<{
+        query: string;        // Original query that was fetched
+        suggestions: string[]; // Response suggestions
+    }>({ query: '', suggestions: [] });
+
     // Keep refs in sync
     useEffect(() => {
         queryRef.current = query;
@@ -38,11 +44,15 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
         filterLangRef.current = filterLang;
     }, [filterLang]);
 
-    // Fetch suggestions
+    // Fetch suggestions with prefix-based local filtering
     useEffect(() => {
-        if (!query.trim()) {
+        const trimmedQuery = query.trim();
+        const lowerQuery = trimmedQuery.toLowerCase();
+
+        if (!trimmedQuery) {
             setSuggestions([]);
             setShowSuggestions(false);
+            setInlineCompletion('');
             return;
         }
 
@@ -52,7 +62,7 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
         }
 
         // Hide suggestions if query exactly matches the current result
-        // (e.g., user deleted space and now query matches the displayed result)
+        // Use raw query (not trimmed) so "bầu " won't match "bầu" and will show suggestions
         if (result?.exists && result?.word?.toLowerCase() === query.toLowerCase()) {
             setSuggestions([]);
             setShowSuggestions(false);
@@ -60,13 +70,51 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
             return;
         }
 
+        const cached = suggestCacheRef.current;
+
+        // Check if we can use cached suggestions (prefix-based filtering)
+        // Works for both typing forward and backspace
+        if (cached.suggestions.length > 0) {
+            const isContinuation = lowerQuery.startsWith(cached.query);
+            const isBackspace = cached.query.startsWith(lowerQuery);
+
+            if (isContinuation || isBackspace) {
+                // Filter cached suggestions that match current query
+                const filtered = cached.suggestions.filter(s =>
+                    s.toLowerCase().startsWith(lowerQuery)
+                );
+
+                // Use cache if:
+                // 1. We have more than 1 filtered result, OR
+                // 2. Filtered results equal original cache size (no options were lost, this IS all the data)
+                const hasEnoughResults = filtered.length > 1;
+                const noResultsLost = filtered.length === cached.suggestions.length;
+
+                if (filtered.length > 0 && (hasEnoughResults || noResultsLost)) {
+                    // Use local filtered results, SKIP request
+                    setSuggestions(filtered);
+                    setShowSuggestions(true);
+                    setSelectedIndex(-1);
+                    setInlineCompletion(filtered[0]);
+                    return;
+                }
+                // Not enough matches or results were filtered out, fetch for more
+            }
+        }
+
+        // Fetch new suggestions
         const currentQuery = query;
         const timer = setTimeout(async () => {
             try {
-                const res = await fetch(`/api/v1/suggest?q=${encodeURIComponent(currentQuery)}`);
+                const res = await fetch(`/api/v1/suggest?q=${encodeURIComponent(trimmedQuery)}`);
                 const data = await res.json();
                 // Double-check we still need suggestions (result might have loaded)
                 if (queryRef.current === currentQuery && data.suggestions?.length > 0) {
+                    // Cache the new results
+                    suggestCacheRef.current = {
+                        query: lowerQuery,
+                        suggestions: data.suggestions
+                    };
                     setSuggestions(data.suggestions);
                     setShowSuggestions(true);
                     setSelectedIndex(-1);

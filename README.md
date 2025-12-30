@@ -166,7 +166,7 @@ cd dictionary
 pnpm install
 
 # Download database từ Releases (bắt buộc)
-curl -L -o ./lib/dictionary.db https://github.com/minhqnd/dictionary/releases/latest/download/dictionary.db
+pnpm install-db
 
 pnpm dev
 ```

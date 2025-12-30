@@ -162,9 +162,17 @@ Dữ liệu từ điển (bao gồm file `dictionary.db`) được cung cấp b�
 
 ```bash
 git clone https://github.com/minhqnd/dictionary.git
+cd dictionary
 pnpm install
+
+# Download database từ Releases (bắt buộc)
+curl -L -o ./lib/dictionary.db https://github.com/minhqnd/dictionary/releases/latest/download/dictionary.db
+
 pnpm dev
 ```
+
+> [!NOTE]
+> File `dictionary.db` không được lưu trong Git để giảm dung lượng repository. Bạn cần tải về từ [Releases](https://github.com/minhqnd/dictionary/releases) trước khi chạy. (Hết quota LFS nên phải dùng cách này :)) )
 
 ---
 

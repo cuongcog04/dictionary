@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
 import Database from 'better-sqlite3';
 import path from 'path';
 import { encodeWordSlug } from '@/lib/urlSlug';
@@ -21,19 +21,22 @@ function getTotalWordCount(): number {
 }
 
 // Get words for a specific sitemap page (paginated)
-function getWordsForPage(page: number): string[] {
+function getWordsForPage(pageNum: number): string[] {
     const dbPath = path.join(process.cwd(), 'lib', 'dictionary.db');
     const db = new Database(dbPath, { readonly: true, fileMustExist: true });
 
-    const offset = page * URLS_PER_SITEMAP;
+    // Use inline values in SQL to avoid type issues with better-sqlite3
+    const limitVal = URLS_PER_SITEMAP;
+    const offsetVal = pageNum * URLS_PER_SITEMAP;
+
     const rows = db.prepare(`
         SELECT DISTINCT word FROM words 
         WHERE lang_code IN ('vi', 'en')
         ORDER BY 
             CASE lang_code WHEN 'vi' THEN 0 ELSE 1 END,
             word
-        LIMIT ? OFFSET ?
-    `).all(URLS_PER_SITEMAP, offset) as { word: string }[];
+        LIMIT ${limitVal} OFFSET ${offsetVal}
+    `).all() as { word: string }[];
 
     db.close();
     return rows.map(r => r.word);
@@ -50,7 +53,12 @@ export async function generateSitemaps() {
 }
 
 // Generate sitemap for a specific ID
-export default async function sitemap({ id }: { id: number }): Promise<MetadataRoute.Sitemap> {
+export default async function sitemap(props: {
+    id: number;
+}): Promise<MetadataRoute.Sitemap> {
+    // Parse id as integer - Next.js may pass string from URL
+    const id = parseInt(String(props.id), 10) || 0;
+
     // First sitemap (id=0) includes static pages
     const entries: MetadataRoute.Sitemap = [];
 

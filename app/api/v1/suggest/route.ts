@@ -16,7 +16,10 @@ export async function GET(req: Request) {
     const q = searchParams.get('q');
     const limitParam = searchParams.get('limit');
 
-    console.log("[SUGGEST] " + q + " limit:" + limitParam);
+    // Build log message - only include params that exist
+    const logParts = [`[SUGGEST] ${q}`];
+    if (limitParam) logParts.push(`limit:${limitParam}`);
+    console.log(logParts.join(' '));
 
     if (!q || q.length < 1) {
         return NextResponse.json({ suggestions: [] }, { headers: CACHE_HEADERS });

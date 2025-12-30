@@ -10,8 +10,6 @@ export async function GET(req: Request) {
     const word = searchParams.get('word');
     const lang = searchParams.get('lang') || 'vi';
 
-    console.log("[TTS] " + word + " lang:" + lang);
-
     if (!word) {
         return NextResponse.json({ error: 'Missing "word" parameter' }, { status: 400 });
     }

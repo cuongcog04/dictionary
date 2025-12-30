@@ -101,7 +101,7 @@ export default function DictionarySearch({
     };
 
     return (
-        <section id="demo" className="max-w-2xl mx-auto mb-8 text-sm">
+        <section id="search" className="max-w-2xl mx-auto mb-8 text-sm">
             <h2 className="text-xl font-semibold mb-5 pb-2 border-b border-gray-200 dark:border-gray-800">
                 Tra cứu ngay:
             </h2>

@@ -78,7 +78,7 @@ export default function NotFound() {
 
             <main className="max-w-4xl mx-auto">
                 {/* Functional Search bar */}
-                <section id="demo" className="max-w-2xl mx-auto mb-8 text-sm">
+                <section id="search" className="max-w-2xl mx-auto mb-8 text-sm">
                     <h2 className="text-xl font-semibold mb-5 pb-2 border-b border-gray-200 dark:border-gray-800">
                         Tra cứu ngay:
                     </h2>
@@ -135,7 +135,7 @@ export default function NotFound() {
                                 Về trang chủ
                             </Link>
                             {/* <Link
-                                href="/#demo"
+                                href="/#search"
                                 className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg transition-colors"
                             >
                                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

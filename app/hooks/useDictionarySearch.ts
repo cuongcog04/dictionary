@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { useRouter } from 'next/navigation';
 import { LookupResult } from '../types';
 import { encodeWordSlug } from '@/lib/urlSlug';
 import { trackSearch } from '@/lib/gtag';
@@ -12,7 +11,6 @@ interface UseDictionarySearchOptions {
 
 export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
     const { initialWord = '', initialResult = null, updateUrl = false } = options;
-    const router = useRouter();
 
     const [query, setQuery] = useState(initialWord);
     const [suggestions, setSuggestions] = useState<string[]>([]);
@@ -176,7 +174,7 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
         } finally {
             setLoading(false);
         }
-    }, [updateUrl, router]);
+    }, [updateUrl]);
 
     // Auto search with debounce (skip initial if we have initial result)
     useEffect(() => {

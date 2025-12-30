@@ -111,10 +111,12 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
                 setShowSuggestions(false);
                 setInlineCompletion('');
 
-                // Update URL if enabled (use replaceState to avoid losing focus)
+                // Update URL and title if enabled (use replaceState to avoid losing focus)
                 if (updateUrl) {
                     const newUrl = `/word/${encodeWordSlug(word)}`;
                     window.history.replaceState(null, '', newUrl);
+                    // Update document title to match the searched word
+                    document.title = `${word.trim()} là gì? - API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd`;
                 }
             }
         } catch (err) {

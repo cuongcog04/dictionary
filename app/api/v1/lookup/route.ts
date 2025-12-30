@@ -26,6 +26,8 @@ export async function GET(req: Request) {
     const lang = searchParams.get('lang') || undefined;
     const defLang = searchParams.get('def_lang') || undefined;
 
+    console.log("[LOOKUP] " + word + " lang:" + lang + " defLang:" + defLang);
+
     if (!word) {
         return NextResponse.json({ error: 'Missing "word" parameter' }, { status: 400 });
     }

@@ -18,9 +18,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         : `Tra cứu nghĩa, cách dùng và ví dụ của từ "${word}"`;
 
     return {
-        title: `${word} là gì? Nghĩa của từ ${word} - API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd`,
+        title: `"${word}" là gì? Nghĩa của từ ${word} - API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd`,
         description: `${word}: ${firstDefinition}. Tra cứu miễn phí với ví dụ đặt câu, từ đồng nghĩa, phát âm.`,
         keywords: [
+            `${word} nghĩa là gì`,
             `${word} là gì`,
             `nghĩa của từ ${word}`,
             `${word} tiếng việt`,
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             `ví dụ ${word}`,
         ],
         openGraph: {
-            title: `${word} là gì? - API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd`,
+            title: `"${word}" là gì? - API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd`,
             description: firstDefinition,
             url: `https://dict.minhqnd.com/word/${encodeWordSlug(word)}`,
             siteName: 'dict.minhqnd.com',
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             type: 'article',
             images: [
                 {
-                    url: `https://minhqnd.com/api/og?title=${encodeURIComponent(word + ' là gì?')}&description=${encodeURIComponent(firstDefinition.slice(0, 100))}&footer=${encodeURIComponent('API Từ Điển Đa Ngôn Ngữ Free | @minhqnd')}&brand=${encodeURIComponent('Từ điển API')}`,
+                    url: `https://minhqnd.com/api/og?title=${encodeURIComponent('"' + word + '" nghĩa là gì?')}&description=${encodeURIComponent(firstDefinition.slice(0, 100))}&footer=${encodeURIComponent('API Từ Điển Đa Ngôn Ngữ Free | @minhqnd')}&brand=${encodeURIComponent('Từ điển API')}`,
                     width: 1200,
                     height: 630,
                     alt: `Nghĩa của từ ${word}`,

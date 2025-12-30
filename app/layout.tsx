@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     creator: '@minhqnd',
     openGraph: {
         title: 'API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd',
-        description: 'Tra cứu nghĩa 357,000+ từ vựng, 443,000+ định nghĩa với ví dụ, phát âm IPA, từ đồng nghĩa. RESTful API JSON miễn phí.',
+        description: 'Tra cứu nghĩa 357,000+ từ vựng, 443,000+ định nghĩa với ví dụ, phát âm IPA, từ đồng nghĩa. RESTful API JSON miễn phí. Tra cứu ngay!',
         url: 'https://dict.minhqnd.com',
         siteName: 'dict.minhqnd.com',
         locale: 'vi_VN',

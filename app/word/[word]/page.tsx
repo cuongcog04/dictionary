@@ -13,13 +13,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const word = decodeWordSlug(encodedWord);
     const result = lookupWord(word);
 
-    const firstDefinition = result.exists && result.results?.[0]?.meanings?.[0]?.definition
+    // Clean definition from quotes and newlines to avoid breaking HTML meta tags
+    const rawDefinition = result.exists && result.results?.[0]?.meanings?.[0]?.definition
         ? result.results[0].meanings[0].definition.slice(0, 150)
-        : `Tra cứu nghĩa, cách dùng và ví dụ của từ "${word}"`;
+        : `Tra cứu nghĩa, cách dùng và ví dụ`;
+    const firstDefinition = rawDefinition.replace(/["\n\r]/g, '');
 
     return {
-        title: `'${word}' là gì? - API Từ Điển Miễn Phí | minhqnd`,
-        description: `${word}: ${firstDefinition}. Tra cứu miễn phí với ví dụ đặt câu, từ đồng nghĩa, phát âm của từ '${word}'`,
+        title: `"${word}" là gì? Nghĩa của từ "${word}" | API Từ Điển Free | minhqnd`,
+        description: `${word}: ${firstDefinition}. Tra cứu miễn phí với ví dụ đặt câu, từ đồng nghĩa, phát âm của từ "${word}"`,
         keywords: [
             `${word} nghĩa là gì`,
             `${word} là gì`,
@@ -29,8 +31,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             `ví dụ ${word}`,
         ],
         openGraph: {
-            title: `'${word}' là gì? - API Từ Điển Miễn Phí | minhqnd`,
-            description: `${firstDefinition} - "Tra cứu nghĩa, cách dùng và ví dụ của từ '${word}'`,
+            title: `"${word}" là gì? | API Từ Điển Free | minhqnd`,
+            description: `${firstDefinition}. Tra cứu nghĩa và ví dụ miễn phí.`,
             url: `https://dict.minhqnd.com/word/${encodeWordSlug(word)}`,
             siteName: 'dict.minhqnd.com',
             locale: 'vi_VN',
@@ -46,8 +48,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         },
         twitter: {
             card: 'summary_large_image',
-            title: `'${word}' là gì?`,
-            description: `${firstDefinition} - "Tra cứu nghĩa, cách dùng và ví dụ của từ '${word}'`,
+            title: `"${word}" là gì?`,
+            description: `${firstDefinition}. Tra cứu nghĩa miễn phí.`,
         },
         alternates: {
             canonical: `https://dict.minhqnd.com/word/${encodeWordSlug(word)}`,
@@ -111,7 +113,7 @@ export default async function WordPage({ params }: PageProps) {
                 'name': `${word} nghĩa là gì?`,
                 'acceptedAnswer': {
                     '@type': 'Answer',
-                    'text': result.results?.[0]?.meanings?.[0]?.definition || `${word} là một từ trong tiếng Việt.`
+                    'text': `${word} có nghĩa là: ${result.results?.[0]?.meanings?.[0]?.definition || 'một từ trong tiếng Việt.'}`
                 }
             },
             {

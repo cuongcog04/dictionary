@@ -141,12 +141,15 @@ Toàn bộ mã nguồn trong repository này (Next.js, API logic, UI components)
 ### 2. Dữ liệu từ điển (Dictionary Data) - **CC BY-SA 4.0**
 Dữ liệu từ điển (bao gồm file `dictionary.db`) được cung cấp bởi **@minhqnd** theo giấy phép **[Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)](LICENSE-DATA.md)**.
 
-Điều này đảm bảo dữ liệu từ điển luôn được mở và cộng đồng có thể kế thừa, phát triển tiếp. Dữ liệu được tổng hợp từ nhiều nguồn mở (Wiktionary, Hồ Ngọc Đức, vntk...). Vui lòng tuân thủ các điều khoản ghi công khi sử dụng lại bộ dữ liệu này.
+> [!TIP]
+> Điều này đảm bảo dữ liệu từ điển luôn được mở và cộng đồng có thể kế thừa, phát triển tiếp. Dữ liệu được tổng hợp từ nhiều nguồn mở (Wiktionary, Hồ Ngọc Đức, vntk...). Vui lòng tuân thủ các điều khoản ghi công khi sử dụng lại bộ dữ liệu này.
 
 **Khi sử dụng dữ liệu này, bạn cần:**
 - 📌 **Ghi công**: Ghi rõ nguồn `@minhqnd`, liên kết đến [dict.minhqnd.com](https://dict.minhqnd.com).
 - 📌 **Chia sẻ tương tự**: Nếu bạn chỉnh sửa và phân phối lại dữ liệu, bạn phải sử dụng cùng giấy phép CC BY-SA 4.0.
-- 📌 **Dẫn link nguồn**: Vui lòng dẫn link đến website để người dùng có thể tra cứu nguồn gốc chi tiết của từng bộ dữ liệu gốc (Wiktionary, Hồ Ngọc Đức, vntk...).
+
+> [!IMPORTANT]
+> Khi sử dụng dữ liệu này, vui lòng ghi công và dẫn nguồn về **dict.minhqnd.com** theo đúng điều khoản của giấy phép để người dùng có thể tra cứu được nguồn từ điển gốc.
 
 ---
 

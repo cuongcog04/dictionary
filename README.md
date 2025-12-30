@@ -6,6 +6,7 @@
 RESTful API từ điển tiếng Việt và đa ngôn ngữ miễn phí. Hệ thống cung cấp dữ liệu tra cứu chi tiết, phát âm IPA, từ đồng nghĩa và ví dụ minh họa cho hàng trăm ngàn từ vựng.
 
 🔗 **Website & Documentation**: [dict.minhqnd.com](https://dict.minhqnd.com)
+![dict.minhqnd.com](./public/website.png)
 
 ---
 

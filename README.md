@@ -139,7 +139,7 @@ Dự án này sử dụng mô hình **Giấy phép kép (Dual Licensing)** để
 Toàn bộ mã nguồn trong repository này (Next.js, API logic, UI components) được phát hành dưới giấy phép **[MIT](LICENSE)**. Bạn có quyền tự do sử dụng, sao chép và chỉnh sửa cho cả mục đích cá nhân và thương mại.
 
 ### 2. Dữ liệu từ điển (Dictionary Data) - **CC BY-SA 4.0**
-Dữ liệu từ điển (bao gồm file `dictionary.db`) được cung cấp bởi **@minhqnd** theo giấy phép **[Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)](LICENSE-DATA.md)**.
+Dữ liệu từ điển (bao gồm file `dictionary.db`) được cung cấp bởi **@minhqnd** theo giấy phép **[Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)](LICENSE-DATA-API)**.
 
 > [!TIP]
 > Điều này đảm bảo dữ liệu từ điển luôn được mở và cộng đồng có thể kế thừa, phát triển tiếp. Dữ liệu được tổng hợp từ nhiều nguồn mở (Wiktionary, Hồ Ngọc Đức, vntk...). Vui lòng tuân thủ các điều khoản ghi công khi sử dụng lại bộ dữ liệu này.

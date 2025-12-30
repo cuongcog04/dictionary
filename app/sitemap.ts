@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import Database from 'better-sqlite3';
 import path from 'path';
+import { encodeWordSlug } from '@/lib/urlSlug';
 
 // Get all words from database for sitemap
 function getAllWords(): string[] {
@@ -37,7 +38,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Dynamic word pages
     const words = getAllWords();
     const wordPages: MetadataRoute.Sitemap = words.map(word => ({
-        url: `${baseUrl}/word/${encodeURIComponent(word)}`,
+        url: `${baseUrl}/word/${encodeWordSlug(word)}`,
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
         priority: 0.8,
@@ -45,3 +46,4 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     return [...staticPages, ...wordPages];
 }
+

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { lookupWord } from '@/lib/dictionary';
+import { encodeWordSlug, decodeWordSlug } from '@/lib/urlSlug';
 import WordPageClient from './WordPageClient';
 
 interface PageProps {
@@ -9,7 +10,7 @@ interface PageProps {
 // Generate dynamic metadata for SEO
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { word: encodedWord } = await params;
-    const word = decodeURIComponent(encodedWord);
+    const word = decodeWordSlug(encodedWord);
     const result = lookupWord(word);
 
     const firstDefinition = result.exists && result.results?.[0]?.meanings?.[0]?.definition
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         openGraph: {
             title: `${word} là gì? - API Từ Điển Đa Ngôn Ngữ Free | @minhqnd`,
             description: firstDefinition,
-            url: `https://dict.minhqnd.com/word/${encodeURIComponent(word)}`,
+            url: `https://dict.minhqnd.com/word/${encodeWordSlug(word)}`,
             siteName: 'dict.minhqnd.com',
             locale: 'vi_VN',
             type: 'article',
@@ -48,7 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             description: firstDefinition,
         },
         alternates: {
-            canonical: `https://dict.minhqnd.com/word/${encodeURIComponent(word)}`,
+            canonical: `https://dict.minhqnd.com/word/${encodeWordSlug(word)}`,
         },
     };
 }
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 // Server component
 export default async function WordPage({ params }: PageProps) {
     const { word: encodedWord } = await params;
-    const word = decodeURIComponent(encodedWord);
+    const word = decodeWordSlug(encodedWord);
     const result = lookupWord(word);
 
     // Convert to client-compatible format
@@ -94,7 +95,7 @@ export default async function WordPage({ params }: PageProps) {
                 '@type': 'ListItem',
                 'position': 2,
                 'name': word,
-                'item': `https://dict.minhqnd.com/word/${encodeURIComponent(word)}`
+                'item': `https://dict.minhqnd.com/word/${encodeWordSlug(word)}`
             }
         ]
     };

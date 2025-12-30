@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { LookupResult } from '../types';
+import { encodeWordSlug } from '@/lib/urlSlug';
 
 interface UseDictionarySearchOptions {
     initialWord?: string;
@@ -112,7 +113,7 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
 
                 // Update URL if enabled (use replaceState to avoid losing focus)
                 if (updateUrl) {
-                    const newUrl = `/word/${encodeURIComponent(word.trim())}`;
+                    const newUrl = `/word/${encodeWordSlug(word)}`;
                     window.history.replaceState(null, '', newUrl);
                 }
             }

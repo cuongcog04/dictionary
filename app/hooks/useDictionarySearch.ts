@@ -49,8 +49,12 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
             return;
         }
 
-        // Don't show suggestions if we already have a valid result for this query
-        if (result?.exists && result?.word?.toLowerCase() === query.trim().toLowerCase()) {
+        // Hide suggestions if query exactly matches the current result
+        // (e.g., user deleted space and now query matches the displayed result)
+        if (result?.exists && result?.word?.toLowerCase() === query.toLowerCase()) {
+            setSuggestions([]);
+            setShowSuggestions(false);
+            setInlineCompletion('');
             return;
         }
 

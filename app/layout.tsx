@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
+import { Analytics } from "@vercel/analytics/next"
 
 const GA_MEASUREMENT_ID = 'G-YJKGC095KG';
 
@@ -64,6 +65,7 @@ export default function DictionaryLayout({
         <html lang="vi">
             <head>
                 {/* Google Analytics */}
+                <Analytics/>
                 <Script
                     src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
                     strategy="afterInteractive"

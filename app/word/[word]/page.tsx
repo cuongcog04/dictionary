@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             type: 'article',
             images: [
                 {
-                    url: `https://minhqnd.com/api/og?title=${encodeURIComponent(word + ' là gì?')}&description=${encodeURIComponent(firstDefinition.slice(0, 100))}`,
+                    url: `https://minhqnd.com/api/og?title=${encodeURIComponent(word + ' là gì?')}&description=${encodeURIComponent(firstDefinition.slice(0, 100))}&footer=${encodeURIComponent('dict.minhqnd.com - API Từ Điển Tiếng Việt & Đa Ngôn Ngữ Miễn Phí | @minhqnd')}`,
                     width: 1200,
                     height: 630,
                     alt: `Nghĩa của từ ${word}`,

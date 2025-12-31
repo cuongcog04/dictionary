@@ -124,7 +124,8 @@ export default function DictionarySearch({
                                 className="absolute inset-0 py-3.5 pl-3 pr-12 pointer-events-none select-none whitespace-pre overflow-hidden flex items-center"
                                 aria-hidden="true"
                             >
-                                <span className="text-transparent">{inlineCompletion.slice(0, query.length)}</span>
+                                {/* Use actual query text (preserving user's case) + suffix from suggestion */}
+                                <span className="text-transparent">{query}</span>
                                 <span className="text-gray-400 dark:text-gray-500">{inlineCompletion.slice(query.length)}</span>
                             </div>
                         )}

@@ -45,7 +45,9 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
     // Fetch suggestions with prefix-based local filtering
     useEffect(() => {
         const trimmedQuery = query.trim();
-        const lowerQuery = trimmedQuery.toLowerCase();
+        // Use query (not trimmed) to properly support compound word search
+        // e.g., "họ " should be different from "họ"
+        const lowerQuery = query.toLowerCase();
 
         if (!trimmedQuery) {
             setSuggestions([]);
@@ -104,7 +106,9 @@ export function useDictionarySearch(options: UseDictionarySearchOptions = {}) {
         const currentQuery = query;
         const timer = setTimeout(async () => {
             try {
-                const res = await fetch(`/api/v1/suggest?q=${encodeURIComponent(trimmedQuery)}`);
+                // Use query (not trimmed) to support compound word suggestions
+                // e.g., "họ " should suggest "họ tộc", "họ mạc" instead of "họ", "hoạ"
+                const res = await fetch(`/api/v1/suggest?q=${encodeURIComponent(query)}`);
                 const data = await res.json();
                 // Double-check we still need suggestions (result might have loaded)
                 if (queryRef.current === currentQuery && data.suggestions?.length > 0) {

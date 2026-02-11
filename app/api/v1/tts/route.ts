@@ -35,7 +35,10 @@ export async function GET(req: Request) {
                 return new NextResponse(audioBuffer, {
                     headers: {
                         'Content-Type': 'audio/mpeg',
+                        'Content-Length': audioBuffer.byteLength.toString(), // Bắt buộc cho trình duyệt Web
                         'Cache-Control': 'public, max-age=31536000, immutable',
+                        'Accept-Ranges': 'bytes', // Cho phép trình duyệt tua/tải theo cụm
+                        'Access-Control-Allow-Origin': '*', // Đảm bảo CORS cho file media
                     },
                 });
             }
